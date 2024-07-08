@@ -19,7 +19,11 @@
 ```shell
 sudo dnf config-manager --add-repo=https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
-
+官方的下载源（注意，该条命令不适用在这服务器上）
+```shell
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+```
 运行以下命令，安装Alibaba Cloud Linux 3专用的dnf源兼容插件。
 
 ```shell
