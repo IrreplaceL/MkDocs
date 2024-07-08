@@ -20,3 +20,20 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 # 这是利用Typora写的第（我也忘了）份Md
 
 我的搜索界面是一只皮卡丘。
+
+
+
+
+
+git推送的命令
+
+后续上传文件不想打开vs，或没必要做出调整时，可直接梭哈
+
+```shell
+git add .
+
+git commit -m "your commit message"
+
+git push origin main
+```
+
