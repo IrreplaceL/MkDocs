@@ -6,7 +6,7 @@
 
 
 
-##### 搜索是否有这个镜像
+##### 搜索是否有这个镜像（非本地）
 
 ```shell
 docker search nginx
@@ -130,7 +130,7 @@ docker restart 2ae
 ##### 查看应用占用情况
 
 ```
-docker stats 2ae
+docker stats 2aex
 ```
 
 每秒发生变化
@@ -153,24 +153,243 @@ docker rm 2a
 
 或强制删除
 
-```
+```sh
 docker rm -f 2a
 ```
 
 注意区别，rm删除容器，rmi删除镜像
 
+一次删除所有容器
+
+```sh
+docker rm -f $(docker ps -aq)
+```
+
+
+
 ## run细细道来
 
-```
-docker run -d --name yourname -p 80:2348 ngnix
+```sh
+docker run -d --name yourname -p 2348:80 nginx
 ```
 
 -d ：后台运行
 
 --name 为容器定义名字
 
--p 端口号映射 容器内映射到本机
+-p 端口号映射 容器内映射到本机 **（！！是将容器内80端口映射到服务器2348端口，注意顺序）**
 
 ![image-20240708172302412](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708172302412.png)
 
+![image-20240708202424890](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708202424890.png)
+
 启动后会打印完整用户ID，用ps查看后发现，唯一ID已经发生变化
+
+##### 报错解决
+
+![image-20240708201759007](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708201759007.png)
+
+说明端口号被占用
+
+```sh
+netstat -tanlp  #查看占用端口命令
+```
+
+![image-20240708201912921](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708201912921.png)
+
+杀死进程
+
+```sh
+kill 735
+```
+
+即可再次创建docker容器
+
+###### next：出现如下报错
+
+```
+tcpdocker: Error response from daemon: driver failed programming external connectivity on endpoint mynginx2 (7501b9388a430f5057abce361eb7c970f223cdac69033e8f0728cb993c1261f8):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 2349 -j DNAT --to-destination 172.17.0.3:80 ! -i docker0: iptables: No chain/target/match by that name.
+```
+
+运行如下
+
+```sh
+systemctl restart docker
+```
+
+
+
+##### 进入容器
+
+```sh
+docker exec -it ac /bin/bash
+```
+
+![image-20240708203254847](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708203254847.png)
+
+`exit` 退出容器内部
+
+## 保存镜像
+
+##### 提交镜像
+
+```sh
+docker commit
+```
+
+创建一个镜像，可以将容器内部情况全部复制，打包成一个新的镜像
+
+![image-20240710103807250](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710103807250.png)
+
+-a 指定作者
+
+-c 有哪些改变的列表
+
+-m 此次提交的信息
+
+-p 打包期间暂停容器运行
+
+```
+docker commit  -m "提交信息" mynginx mynginx:v1.0
+```
+
+##### 检查镜像列表
+
+![image-20240710104146893](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104146893.png)
+
+##### 保存镜像
+
+```
+docker save
+```
+
+![image-20240710104311397](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104311397.png)
+
+![image-20240710104232104](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104232104.png)
+
+##### 加载镜像
+
+```
+docker load
+```
+
+![image-20240710104457599](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104457599.png)
+
+![image-20240710104436077](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104436077.png)
+
+## 分享社区
+
+##### 登陆 docker login
+
+![image-20240710104821446](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104821446.png)
+
+##### 为镜像改名
+
+```
+docker tag
+```
+
+上传的镜像为用户名加镜像名，故上传前需要用docker tag 进行改名，下图显示docker tag 的用法以及改名后虽然名字不同，但唯一ID是一样的，说明是同一个镜像
+
+![image-20240710105002484](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710105002484.png)
+
+**制作一个最新版本，便于在社区下载**
+
+![image-20240710105525240](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710105525240.png)
+
+##### 推送镜像
+
+```
+docker push
+```
+
+（此时不能写镜像id，因为一样而无法区分）
+
+![image-20240710105235244](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710105235244.png)
+
+## 存储-目录挂载
+
+##### 目录挂载：
+
+```
+ -v /app/nghtml:/usr/share/nginx/html
+```
+
+  （本机目录->容器目录，以本机目录为主，新建后如果本机目录没有东西则容器内页也没有，用在docker run上）
+
+卷映射：
+
+```
+-v ngconf:/etc/nginx  
+```
+
+（外部目录以内部目录为准）
+
+目录统一挂载到本机`/var/lib/docker/volumes/<volume-name>`   （上方卷映射卷名为ngconf）
+
+删除容器时，卷不会被删除，数据依然存在
+
+##### 列出所有的卷
+
+```
+docker volume ls
+```
+
+##### 手动创建卷
+
+```
+docker volume create  <volume-name> 
+```
+
+##### 查看某一个卷的详情
+
+```
+docker volume inspect <volume-name> 
+```
+
+下图打印卷所在的真正位置
+
+![image-20240710111912323](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710111912323.png)
+
+## 自定义网络
+
+docker为每个容器分配唯一ip，使用 **容器ip+容器端口** 可以互相访问
+
+ip由于各种原因可能会变化,docker()默认不支持主机域名访问，故使用自定义网络。
+
+创建自定义网络后，容器名就是稳定域名
+
+##### 创建自定义网络
+
+```
+docker network create mynet
+```
+
+##### 查看所有网络
+
+```
+docker network ls
+```
+
+![image-20240710113948042](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710113948042.png)
+
+**bridge桥接网络**
+
+当创建好自定义网络后，需要在docker run中使用，将容器添加到自定义网络
+
+```
+docker run -d -p 2341:80 --name myapp1 --network mynet nginx
+```
+
+-e 添加环境变量
+
+##### 查看容器详情
+
+```
+docker inspect myapp1 
+```
+
+![image-20240710114824261](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114824261.png)
+
+![image-20240710114905130](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114905130.png)
+
