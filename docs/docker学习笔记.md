@@ -1,3 +1,5 @@
+
+
 # docker学习笔记
 
 在上文中，服务器上搞好focker了，下载了一个windTerm，第一次使用第三方远程工具。这玩意有点丑，不过也不需要每次打开阿里云官网，打开云服务器再连接
@@ -389,7 +391,432 @@ docker run -d -p 2341:80 --name myapp1 --network mynet nginx
 docker inspect myapp1 
 ```
 
-![image-20240710114824261](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114824261.png)
+<img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114824261.png" alt="image-20240710114824261" style="zoom:50%;" />
 
-![image-20240710114905130](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114905130.png)
+<img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114905130.png" alt="image-20240710114905130" style="zoom:50%;" />
+
+
+
+## docker compose
+
+<img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710195653829.png" alt="image-20240710195653829" style="zoom:67%;" />
+
+<img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710195855972.png" alt="image-20240710195855972" style="zoom:67%;" />
+
+创建自定义网络
+
+```sh
+docker network create blog
+```
+
+创建mysql数据库（\为换行）
+
+```sh
+docker run -d -p 3307:3306 \-e MYSOL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=wordpress -v mysql-data:/var/lib/mysql -v/app/myconf:/etc/mysql/conf.d \--restart always --name mysql --network blog mysql:8.0
+```
+
+创建wordpress
+
+```sh
+\#启动wordpress
+
+docker run -d -p 8080:80 \
+
+-e WORDPRESS_DB_HOST=mysql \
+
+-e WORDPRESS_DB_USER=root \
+
+-e WORDPRESS_DB_PASSWORD=123456 \
+
+-e WORDPRESS_DB_NAME=wordpress \
+
+-v wordpress:/var/www/html \
+
+--restart always --name wordpress-app \
+
+--network blog \
+
+wordpress:latest
+```
+
+### 使用compose.yaml启动容器
+
+![image-20240710204606174](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710204606174.png)
+
+编辑一个yarl文件
+
+```
+vim compose.yaml
+```
+
+进入编辑compose文件中，将下方代码粘贴，随后`:wq`退出保存，利用`ls`查看是否存在该文件
+
+```yaml
+name: myblog     #compose名称
+services:        #  服务，这个yaml文件中启用两个镜像，一个是mysql，一个是博客镜像wordpress 
+  mysql:			#mysql镜像配置
+    container_name: mysql     
+    image: mysql:8.0      #所使用的镜像版本
+    ports:					#端口号配置
+      - "3307:3306"			#数组的写法
+    environment:			#环境变量
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=wordpress
+    volumes:					#挂载
+      - mysql-data:/var/lib/mysql    #卷挂载需要在最外层指定
+      - /app/myconf:/etc/mysql/conf.d 
+    restart: always       #开机自动启动
+    networks:          #加入到自定义网络，该网络也需要在最外层指定
+      - blog
+
+  wordpress:
+    image: wordpress
+    ports:
+      - "8081:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: 123456
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress:/var/www/html
+    restart: always
+    networks:
+      - blog
+    depends_on:			#该镜像依赖于mysql，需要mysql启动后才能docker run这个
+      - mysql
+
+volumes:            #指定卷挂载
+  mysql-data:
+  wordpress:
+
+networks:				#指定自定义网络
+  blog:
+```
+
+在启动前，将上次创建的容器、卷、自定义网络全部删除
+
+![image-20240710210314603](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710210314603.png)![image-20240710210349934](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710210349934.png)
+
+一次性启动所有容器
+
+```
+docker compose -f compose.yaml up -d
+```
+
+-f 指定启动的文件，如果不指定默认以compose.yaml文件启动 
+
+-d 后台启动
+
+
+
+![image-20240710212301437](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710212301437.png)
+
+注意：所创建的卷名，自定义网络名不是单纯的卷名，网络名，而是应用名_卷名等，如在这个例中中，yarl文件中  `name: myblog`，加上 
+
+```
+networks:          #加入到自定义网络，该网络也需要在最外层指定
+      - blog
+```
+
+故自定义网络名为`myblog_blog`
+
+##### 移除创建的镜像
+
+![image-20240710212839879](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710212839879.png)
+
+## **Dockerfile**
+
+将自己的jar包打包成镜像（好多配置）
+
+```sh
+FROM openjdk:17
+
+LABEL author=leifengyang
+
+COPY app.jar /app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","/app.jar"]
+```
+
+## [ 一键安装超多中间件](https://www.yuque.com/leifengyang/sutong/au0lv3sv3eldsmn8#apfCS)
+
+![image-20240710214316081](docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710214316081.png)
+
+来自尚硅谷
+
+```yaml
+#Disable memory paging and swapping performance
+sudo swapoff -a
+
+# Edit the sysctl config file
+sudo vi /etc/sysctl.conf
+
+# Add a line to define the desired value
+# or change the value if the key exists,
+# and then save your changes.
+vm.max_map_count=262144
+
+# Reload the kernel parameters using sysctl
+sudo sysctl -p
+
+# Verify that the change was applied by checking the value
+cat /proc/sys/vm/max_map_count
+```
+
+注意：
+●将下面文件中 kafka 的  119.45.147.122 改为你自己的服务器IP。
+●所有容器都做了时间同步，这样容器的时间和linux主机的时间就一致了
+准备一个 compose.yaml文件，内容如下：
+
+```yaml
+name: devsoft
+services:
+  redis:
+    image: bitnami/redis:latest
+    restart: always
+    container_name: redis
+    environment:
+      - REDIS_PASSWORD=123456
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/bitnami/redis/data
+      - redis-conf:/opt/bitnami/redis/mounted-etc
+      - /etc/localtime:/etc/localtime:ro
+
+  mysql:
+    image: mysql:8.0.31
+    restart: always
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - '3306:3306'
+      - '33060:33060'
+    volumes:
+      - mysql-conf:/etc/mysql/conf.d
+      - mysql-data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+
+  rabbit:
+    image: rabbitmq:3-management
+    restart: always
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=rabbit
+      - RABBITMQ_DEFAULT_VHOST=dev
+    volumes:
+      - rabbit-data:/var/lib/rabbitmq
+      - rabbit-app:/etc/rabbitmq
+      - /etc/localtime:/etc/localtime:ro
+  opensearch-node1:
+    image: opensearchproject/opensearch:2.13.0
+    container_name: opensearch-node1
+    environment:
+      - cluster.name=opensearch-cluster # Name the cluster
+      - node.name=opensearch-node1 # Name the node that will run in this container
+      - discovery.seed_hosts=opensearch-node1,opensearch-node2 # Nodes to look for when discovering the cluster
+      - cluster.initial_cluster_manager_nodes=opensearch-node1,opensearch-node2 # Nodes eligibile to serve as cluster manager
+      - bootstrap.memory_lock=true # Disable JVM heap memory swapping
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # Set min and max JVM heap sizes to at least 50% of system RAM
+      - "DISABLE_INSTALL_DEMO_CONFIG=true" # Prevents execution of bundled demo script which installs demo certificates and security configurations to OpenSearch
+      - "DISABLE_SECURITY_PLUGIN=true" # Disables Security plugin
+    ulimits:
+      memlock:
+        soft: -1 # Set memlock to unlimited (no soft or hard limit)
+        hard: -1
+      nofile:
+        soft: 65536 # Maximum number of open files for the opensearch user - set to at least 65536
+        hard: 65536
+    volumes:
+      - opensearch-data1:/usr/share/opensearch/data # Creates volume called opensearch-data1 and mounts it to the container
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 9200:9200 # REST API
+      - 9600:9600 # Performance Analyzer
+
+  opensearch-node2:
+    image: opensearchproject/opensearch:2.13.0
+    container_name: opensearch-node2
+    environment:
+      - cluster.name=opensearch-cluster # Name the cluster
+      - node.name=opensearch-node2 # Name the node that will run in this container
+      - discovery.seed_hosts=opensearch-node1,opensearch-node2 # Nodes to look for when discovering the cluster
+      - cluster.initial_cluster_manager_nodes=opensearch-node1,opensearch-node2 # Nodes eligibile to serve as cluster manager
+      - bootstrap.memory_lock=true # Disable JVM heap memory swapping
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # Set min and max JVM heap sizes to at least 50% of system RAM
+      - "DISABLE_INSTALL_DEMO_CONFIG=true" # Prevents execution of bundled demo script which installs demo certificates and security configurations to OpenSearch
+      - "DISABLE_SECURITY_PLUGIN=true" # Disables Security plugin
+    ulimits:
+      memlock:
+        soft: -1 # Set memlock to unlimited (no soft or hard limit)
+        hard: -1
+      nofile:
+        soft: 65536 # Maximum number of open files for the opensearch user - set to at least 65536
+        hard: 65536
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - opensearch-data2:/usr/share/opensearch/data # Creates volume called opensearch-data2 and mounts it to the container
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.13.0
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601 # Map host port 5601 to container port 5601
+    expose:
+      - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
+    environment:
+      - 'OPENSEARCH_HOSTS=["http://opensearch-node1:9200","http://opensearch-node2:9200"]'
+      - "DISABLE_SECURITY_DASHBOARDS_PLUGIN=true" # disables security dashboards plugin in OpenSearch Dashboards
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  zookeeper:
+    image: bitnami/zookeeper:3.9
+    container_name: zookeeper
+    restart: always
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: 'bitnami/kafka:3.4'
+    container_name: kafka
+    restart: always
+    hostname: kafka
+    ports:
+      - '9092:9092'
+      - '9094:9094'
+    environment:
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://0.0.0.0:9094
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://119.45.147.122:9094
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - "KAFKA_HEAP_OPTS=-Xmx512m -Xms512m"
+    volumes:
+      - kafka-conf:/bitnami/kafka/config
+      - kafka-data:/bitnami/kafka/data
+      - /etc/localtime:/etc/localtime:ro
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      DYNAMIC_CONFIG_ENABLED: true
+      KAFKA_CLUSTERS_0_NAME: kafka-dev
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    volumes:
+      - kafkaui-app:/etc/kafkaui
+      - /etc/localtime:/etc/localtime:ro
+
+  nacos:
+    image: nacos/nacos-server:v2.3.1
+    container_name: nacos
+    ports:
+      - 8848:8848
+      - 9848:9848
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - JVM_XMX=512m
+      - JVM_XMS=512m
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=nacos-mysql
+      - MYSQL_SERVICE_DB_NAME=nacos_devtest
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=nacos
+      - MYSQL_SERVICE_PASSWORD=nacos
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - NACOS_AUTH_IDENTITY_KEY=2222
+      - NACOS_AUTH_IDENTITY_VALUE=2xxx
+      - NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789
+      - NACOS_AUTH_ENABLE=true
+    volumes:
+      - /app/nacos/standalone-logs/:/home/nacos/logs
+      - /etc/localtime:/etc/localtime:ro
+    depends_on:
+      nacos-mysql:
+        condition: service_healthy
+  nacos-mysql:
+    container_name: nacos-mysql
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM mysql:8.0.31
+        ADD https://raw.githubusercontent.com/alibaba/nacos/2.3.2/distribution/conf/mysql-schema.sql /docker-entrypoint-initdb.d/nacos-mysql.sql
+        RUN chown -R mysql:mysql /docker-entrypoint-initdb.d/nacos-mysql.sql
+        EXPOSE 3306
+        CMD ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    image: nacos/mysql:8.0.30
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nacos_devtest
+      - MYSQL_USER=nacos
+      - MYSQL_PASSWORD=nacos
+      - LANG=C.UTF-8
+    volumes:
+      - nacos-mysqldata:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "13306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  prometheus:
+    image: prom/prometheus:v2.52.0
+    container_name: prometheus
+    restart: always
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus-data:/prometheus
+      - prometheus-conf:/etc/prometheus
+      - /etc/localtime:/etc/localtime:ro
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: grafana
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - /etc/localtime:/etc/localtime:ro
+
+volumes:
+  redis-data:
+  redis-conf:
+  mysql-conf:
+  mysql-data:
+  rabbit-data:
+  rabbit-app:
+  opensearch-data1:
+  opensearch-data2:
+  nacos-mysqldata:
+  zookeeper_data:
+  kafka-conf:
+  kafka-data:
+  kafkaui-app:
+  prometheus-data:
+  prometheus-conf:
+  grafana-data:
+```
 
