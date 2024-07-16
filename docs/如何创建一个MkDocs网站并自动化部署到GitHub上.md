@@ -10,7 +10,7 @@
 
 可参考下面设置
 
-<img src="C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20240707204454915.png" alt="image-20240707204454915" style="zoom:50%;" />
+<img src="%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A.assets/image-20240707204454915.png" alt="image-20240707204454915" style="zoom:50%;" />
 
 ##### 2.将新建的仓库代码clone到本地
 
@@ -18,11 +18,11 @@
 
 `git clone git@github.com:xxxxxxxx`
 
-<img src="C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20240707204716800.png" alt="image-20240707204716800" style="zoom:50%;" />
+<img src="%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A.assets/image-20240707204716800.png" alt="image-20240707204716800" style="zoom:50%;" />
 
 进入克隆到本地代码的文件夹，
 
-<img src="C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20240707204931122.png" alt="image-20240707204931122" style="zoom:50%;" />
+<img src="%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A.assets/image-20240707204931122.png" alt="image-20240707204931122" style="zoom:50%;" />
 
 ##### 3.创建一个python的虚拟环境(确保使用过[`pip`](https://squidfunk.github.io/mkdocs-material/getting-started/#with-pip)Python 包管理器)
 
@@ -50,7 +50,7 @@
   pip --version
   ```
 
-  ![image-20240707212440023](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20240707212440023.png)
+  ![image-20240707212440023](%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A.assets/image-20240707212440023.png)
 
 - 安装所需依赖
 
@@ -78,7 +78,7 @@
   mkdocs serve
   ```
 
-  简略部署如下<img src="C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20240707213148712.png" alt="image-20240707213148712" style="zoom:50%;" />
+  简略部署如下<img src="%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A.assets/image-20240707213148712.png" alt="image-20240707213148712" style="zoom:50%;" />
 
   最低配置，在`mkdocs.yml`中设置
 
