@@ -37,3 +37,33 @@ git commit -m "your commit message"
 git push origin main
 ```
 
+# 创建python虚拟环境
+
+```
+python -m venv myvenv
+```
+
+激活虚拟环境
+
+![image-20240723112642708](index.assets/image-20240723112642708.png)
+
+查看版本
+
+![image-20240723112701159](index.assets/image-20240723112701159.png)
+
+再次进入虚拟环境
+
+```shell
+venv\Scripts\activate
+```
+
+主要是根据venv所在的目录
+
+
+
+退出虚拟环境
+
+```
+deactivate
+```
+
