@@ -12,6 +12,6 @@ plugins:
           build: true
           link: /MkDocs/
         - locale: zh-Hant
-          name: 中文繁体（台湾）
+          name: 中文繁体
           build: true
           link: /MkDocs/zh-Hant/
