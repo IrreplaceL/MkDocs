@@ -2,11 +2,14 @@ site_name: My Docs
 # site_url: https://mydomain.org/mysite
 theme:
   name: material
-extra:
-  alternate:
-    - name: Chinese (Simplified)
-      link: / 
-      lang: zh
-    - name: Chinese (Taiwanese)
-      link: /zh_Hant/
-      lang: zh-Hant
+plugins:
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: zh
+          default: true
+          name: 中文简体
+          build: true
+        - locale: zh-Hant
+          name: 中文繁体（台湾）
+          build: true
