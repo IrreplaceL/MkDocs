@@ -14,4 +14,4 @@ plugins:
         - locale: zh-Hant
           name: 中文繁体（台湾）
           build: true
-          link: /MkDocs/
+          link: /MkDocs/zh-Hant/
