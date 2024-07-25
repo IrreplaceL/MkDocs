@@ -1,8 +1,34 @@
 site_name: My Docs
 # site_url: https://mydomain.org/mysite
+
 theme:
+  #favicon: assets/logo.png
   name: material
+  features:
+    - content.code.copy
+  palette:
+    # - primary: brown
+    # - accent: deep orange
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: deep purple
+      accent: deep purple
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"   
+      primary: blue grey
+      accent: deep purple
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  # Primary color for the palette
+
 plugins:
+  - search
   - i18n:
       docs_structure: suffix
       languages:
@@ -15,3 +41,7 @@ plugins:
           name: 中文繁体
           build: true
           link: /MkDocs/zh-Hant/
+repo_url: https://github.com/IrreplaceL/MkDocs
+repo_name: IrreplaceL/MkDocs
+
+  
