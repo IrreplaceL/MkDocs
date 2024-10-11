@@ -1,0 +1,1809 @@
+
+<!doctype html>
+<html lang="zh-Hant" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2/">
+      
+      
+        <link rel="next" href="../%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>基於術語字典幹預的機器翻譯 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳轉至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../" title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基於術語字典幹預的機器翻譯
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="選擇語言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2%E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91/" hreflang="zh" class="md-select__link">
+              中文简体
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh-Hant" class="md-select__link">
+              中文繁体
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空" aria-label="清空" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IrreplaceL/MkDocs" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導航" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IrreplaceL/MkDocs" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E5%B0%8F%E7%82%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux小炒.md
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C题1-1GPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker学习笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvm%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nvm使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poweshell%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poweshell后台运行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python不完整的基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim%E9%AA%9A%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vim骚操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wordpress%E6%B5%85%E5%B0%9D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    wordpress浅尝
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B3%E4%BA%8ESora%E7%9A%84%E4%B8%80%E5%88%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    關於Sora的一切
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前后端分离项目博客
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    基於術語字典幹預的機器翻譯
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    基於術語字典幹預的機器翻譯
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      資料劃分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1_terminologyipynb" class="md-nav__link">
+    <span class="md-ellipsis">
+      task-1_terminology.ipynb解釋
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="task-1_terminology.ipynb解釋">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#translationdataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      類別 TranslationDataset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="類別 TranslationDataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__len__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __len__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__getitem__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __getitem__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collate_fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      collat​​e_fn 函數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder 類
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoder 類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init___1" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder 類
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoder 類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init___2" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seq2seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seq2Seq 類
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seq2Seq 類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init___3" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_terminology_dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_terminology_dictionary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load_terminology_dictionary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      函數定義與參數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      初始化術語詞典
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      開啟檔案並讀取內容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      解析並儲存術語對
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      傳回術語詞典
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      主函數
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主函數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#train" class="md-nav__link">
+    <span class="md-ellipsis">
+      train
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="train">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      參數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      函數內容
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何创建一个MkDocs网站并自动化部署到GitHub上
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    報錯
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    數學建模
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1C%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学建模C题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E7%9A%86%E5%AF%82%E5%AF%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学皆寂寞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8D%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习不入门到入土
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%BF%AB%E8%BF%87%E6%9C%9F%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    记一次在快过期的阿里云服务器安装docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%98%BF%E9%87%8C%E4%BA%91oo%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    阿里云oos对象存储
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      資料劃分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1_terminologyipynb" class="md-nav__link">
+    <span class="md-ellipsis">
+      task-1_terminology.ipynb解釋
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="task-1_terminology.ipynb解釋">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#translationdataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      類別 TranslationDataset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="類別 TranslationDataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__len__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __len__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__getitem__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __getitem__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collate_fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      collat​​e_fn 函數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder 類
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoder 類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init___1" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder 類
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoder 類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init___2" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seq2seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seq2Seq 類
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seq2Seq 類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init___3" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__ 方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward 方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_terminology_dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_terminology_dictionary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load_terminology_dictionary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      函數定義與參數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      初始化術語詞典
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      開啟檔案並讀取內容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      解析並儲存術語對
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      傳回術語詞典
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      主函數
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主函數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#train" class="md-nav__link">
+    <span class="md-ellipsis">
+      train
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="train">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      參數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      函數內容
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">基於術語字典幹預的機器翻譯</h1>
+<p>AI +X | Datawhale 學習指南：https://datawhaler.feishu.cn/wiki/X9AVwtmvyi87bIkYpi2cNGlIn3v</p>
+<p>機器翻譯的發展歷程:<strong>基於規則的機器翻譯（1950s-1980s）</strong>-&gt;<strong>基於統計的機器翻譯（1990s-2000s）</strong>-&gt;**基於神經網路機器翻譯（2010s-present） **</p>
+<h2 id="_2">資料劃分</h2>
+<p>在機器學習和深度學習專案中，資料集通常被分割為三個部分：訓練<strong>集（Training Set）</strong>、開發集（Development Set，也常被稱為<strong>驗證集，Validation Set</strong> ）和<strong>測試集（Test Set）</strong>。</p>
+<h2 id="task-1_terminologyipynb">task-1_terminology.ipynb解釋</h2>
+<h3 id="translationdataset">類別 <code>TranslationDataset</code></h3>
+<h4 id="__init__"><code>__init__</code> 方法</h4>
+<ol>
+<li><strong>初始化資料和術語</strong>：</li>
+<li><code>self.data = []</code>：初始化一個空列表，用於儲存從檔案中讀取的資料。</li>
+<li><code>with open(filename, 'r', encoding='utf-8') as f:</code>：開啟檔案讀取數據，假設檔案中的每一行包含一對中英文翻譯，使用製表符（<code>\ t</code>）分隔。</li>
+<li><code>self.data.append((en, zh))</code>：將讀取的中英文對加入 <code>self.data</code> 清單。</li>
+<li><code>self.terminology = terminology</code>：儲存傳入的術語字典。</li>
+<li><strong>建立詞彙表</strong>：</li>
+<li><code>self.en_tokenizer = get_tokenizer('basic_english')</code>：使用 <code>torchtext</code> 提供的基本英文分詞器。</li>
+<li><code>self.zh_tokenizer = list</code>：使用字元級分詞器來處理中文。</li>
+<li><strong>建構詞彙表</strong>：</li>
+<li><code>en_vocab = Counter(self.terminology.keys())</code>：初始化英文詞彙表，確保術語字典中的單字被包含。</li>
+<li><code>zh_vocab = Counter()</code>：初始化中文詞彙表。</li>
+<li><strong>更新詞彙表</strong>：</li>
+<li>遍歷資料中的每一對句子，更新英文和中文的詞彙表。</li>
+<li><strong>添加特殊符號和術語到詞彙表</strong>：</li>
+<li><code>self.en_vocab</code> 和<code>self.zh_vocab</code>：添加特殊符號（<code>&lt;pad&gt;</code>，<code>&lt;sos&gt;</code>，<code>&lt;eos&gt;</code>）和術語詞典中的詞，接著添加最常見的10000個詞。</li>
+<li><code>self.en_word2idx</code> 和 <code>self.zh_word2idx</code>：建立從單字到索引的映射字典。</li>
+</ol>
+<h4 id="__len__"><code>__len__</code> 方法</h4>
+<ul>
+<li>傳回資料集的大小。</li>
+</ul>
+<h4 id="__getitem__"><code>__getitem__</code> 方法</h4>
+<ul>
+<li>取得資料集中指定索引的中英文對，並將其轉換為張量（tensor）。</li>
+<li>將特殊符號 <code>&lt;eos&gt;</code> 加到每個句子的最後。</li>
+<li>使用詞彙表將每個單字轉換為索引，預設情況下，如果單字不在詞彙表中，使用 <code>&lt;sos&gt;</code> 索引。</li>
+</ul>
+<h3 id="collate_fn"><code>collat​​e_fn</code> 函數</h3>
+<ul>
+<li>這個函式用於在 <code>DataLoader</code> 中進行批次處理。</li>
+<li>批次填充</li>
+<li><code>en_batch</code> 和 <code>zh_batch</code>：分別儲存英文和中文句子的張量。</li>
+<li>使用 <code>nn.utils.rnn.pad_sequence</code> 對批次中的序列進行填充，確保每個序列的長度相同。填充值為0（即 <code>&lt;pad&gt;</code> 索引）。</li>
+</ul>
+<pre><code class="language-python"># 定義資料集類
+# 修改TranslationDataset類別以處理術語
+class TranslationDataset(Dataset):
+ def __init__(self, filename, terminology):
+ self.data = []
+ with open(filename, 'r', encoding='utf-8') as f:
+ for line in f:
+ en, zh = line.strip().split('\t')
+ self.data.append((en, zh))
+
+ self.terminology = terminology
+
+ # 建立詞彙表，注意這裡需要確保術語字典中的單字也被包含在詞彙表中
+ self.en_tokenizer = get_tokenizer('basic_english')
+ self.zh_tokenizer = list # 使用字元級分詞
+
+ en_vocab = Counter(self.terminology.keys()) # 確保術語在詞彙表中
+ zh_vocab = Counter()
+
+ for en, zh in self.data:
+ en_vocab.update(self.en_tokenizer(en))
+ zh_vocab.update(self.zh_tokenizer(zh))
+
+ # 新增術語到詞彙表
+ self.en_vocab = ['&lt;pad&gt;', '&lt;sos&gt;', '&lt;eos&gt;'] + list(self.terminology.keys()) + [word for word, _ in en_vocab.most_common(10000)]
+ self.zh_vocab = ['&lt;pad&gt;', '&lt;sos&gt;', '&lt;eos&gt;'] + [word for word, _ in zh_vocab.most_common(10000)]
+
+ self.en_word2idx = {word: idx for idx, word in enumerate(self.en_vocab)}
+ self.zh_word2idx = {word: idx for idx, word in enumerate(self.zh_vocab)}
+
+
+ def __len__(self):
+ return len(self.data)
+
+ def __getitem__(self, idx):
+ en, zh = self.data[idx]
+ en_tensor = torch.tensor([self.en_word2idx.get(word, self.en_word2idx['&lt;sos&gt;']) for word in self.en_tokenizer(en)] + [self.en_word2idx['&lt;eos&gt;']])
+ zh_tensor = torch.tensor([self.zh_word2idx.get(word, self.zh_word2idx['&lt;sos&gt;']) for word in self.zh_tokenizer(zh)] + [self.zh_word2idx['&lt;eos&gt;'])
+ return en_tensor, zh_tensor
+
+def collat​​e_fn(batch):
+ en_batch, zh_batch = [], []
+ for en_item, zh_item in batch:
+ en_batch.append(en_item)
+ zh_batch.append(zh_item)
+
+ # 將英文和中文序列分別進行填充
+ en_batch = nn.utils.rnn.pad_sequence(en_batch, padding_value=0, batch_first=True)
+ zh_batch = nn.utils.rnn.pad_sequence(zh_batch, padding_value=0, batch_first=True)
+
+ return en_batch, zh_batch
+</code></pre>
+<h3 id="encoder"><code>Encoder</code> 類</h3>
+<h4 id="__init___1"><code>__init__</code> 方法</h4>
+<ul>
+<li>初始化編碼器的各層和參數：</li>
+<li><code>self.embedding</code>：定義一個嵌入層，將輸入的索引轉換為對應的嵌入向量。</li>
+<li><code>self.rnn</code>：定義一個具有多層和 dropout 的 GRU（門控循環單元）層，用於處理嵌入向量。</li>
+<li><code>self.dropout</code>：定義一個 dropout 層，用於正規化以防止過度擬合。</li>
+</ul>
+<h4 id="forward"><code>forward</code> 方法</h4>
+<ul>
+<li>輸入 <code>src</code>（形狀為 <code>[batch_size, src_len]</code>），表示批次中的來源序列。</li>
+<li>經過嵌入層和 dropout 處理，得到嵌入向量 <code>embedded</code>（形狀為 <code>[batch_size, src_len, emb_dim]</code>）。</li>
+<li>經過 GRU 層，得到 <code>outputs</code>（形狀為 <code>[batch_size, src_len, hid_dim]</code>）和 <code>hidden</code>（形狀為 <code>[n_layers, batch_size, hid_dim]</code>）。</li>
+<li>回傳 <code>outputs</code> 和 <code>hidden</code>。</li>
+</ul>
+<h3 id="decoder"><code>Decoder</code> 類</h3>
+<h4 id="__init___2"><code>__init__</code> 方法</h4>
+<ul>
+<li>初始化解碼器的各個層和參數：</li>
+<li><code>self.embedding</code>：定義一個嵌入層，將輸入的索引轉換為對應的嵌入向量。</li>
+<li><code>self.rnn</code>：定義一個具有多層和 dropout 的 GRU 層，用於處理嵌入向量。</li>
+<li><code>self.fc_out</code>：定義一個全連接層，用於將 GRU 的輸出對應到目標詞彙表的大小。</li>
+<li><code>self.dropout</code>：定義一個 dropout 層，用於正規化。</li>
+</ul>
+<h4 id="forward_1"><code>forward</code> 方法</h4>
+<ul>
+<li>輸入 <code>input</code>（形狀為 <code>[batch_size, 1]</code>），表示批次中的目標序列的當前時間步的單字索引。</li>
+<li>輸入 <code>hidden</code>（形狀為 <code>[n_layers, batch_size, hid_dim]</code>），表示編碼器的隱藏狀態。</li>
+<li>經過嵌入層和 dropout 處理，得到嵌入向量 <code>embedded</code>（形狀為 <code>[batch_size, 1, emb_dim]</code>）。</li>
+<li>經過 GRU 層，得到 <code>output</code>（形狀為 <code>[batch_size, 1, hid_dim]</code>）和 <code>hidden</code>（形狀為 <code>[n_layers, batch_size, hid_dim]</code>）。</li>
+<li>經過全連接層，得到預測 <code>prediction</code>（形狀為 <code>[batch_size, output_dim]</code>）。</li>
+<li>回傳 <code>prediction</code> 和 <code>hidden</code>。</li>
+</ul>
+<h3 id="seq2seq"><code>Seq2Seq</code> 類</h3>
+<h4 id="__init___3"><code>__init__</code> 方法</h4>
+<ul>
+<li>初始化 seq2seq 模型的編碼器、解碼器和裝置（如 CPU 或 GPU）。</li>
+</ul>
+<h4 id="forward_2"><code>forward</code> 方法</h4>
+<ul>
+<li>輸入 <code>src</code>（形狀為 <code>[batch_size, src_len]</code>）和 <code>trg</code>（形狀為 <code>[batch_size, trg_len]</code>），表示批次中的來源序列和目標序列。</li>
+<li>初始化 <code>outputs</code> 張量，用於儲存每個時間步的解碼器輸出（形狀為 <code>[batch_size, trg_len, trg_vocab_size]</code>）。</li>
+<li>使用編碼器對來源序列進行編碼，得到 <code>hidden</code>（形狀為 <code>[n_layers, batch_size, hid_dim]</code>）。</li>
+<li>初始化解碼器的輸入為目標序列的起始標記（<code>trg[:, 0].unsqueeze(1)</code>）。</li>
+<li>對於目標序列的每個時間步，使用解碼器產生輸出和新的隱藏狀態：</li>
+<li>使用 <code>teacher_forcing_ratio</code> 決定是否使用真實的目標序列字作為下一時間步驟的輸入（教師強制），或使用解碼器的預測。</li>
+<li>傳回 <code>outputs</code>，即每個時間步的預測結果。</li>
+</ul>
+<pre><code class="language-python">class Encoder(nn.Module):
+ def __init__(self, input_dim, emb_dim, hid_dim, n_layers, dropout):
+ super().__init__()
+ self.embedding = nn.Embedding(input_dim, emb_dim)
+ self.rnn = nn.GRU(emb_dim, hid_dim, n_layers, dropout=dropout, batch_first=True)
+ self.dropout = nn.Dropout(dropout)
+
+ def forward(self, src):
+ # src shape: [batch_size, src_len]
+ embedded = self.dropout(self.embedding(src))
+ # embedded shape: [batch_size, src_len, emb_dim]
+ outputs, hidden = self.rnn(embedded)
+ # outputs shape: [batch_size, src_len, hid_dim]
+ # hidden shape: [n_layers, batch_size, hid_dim]
+ return outputs, hidden
+
+
+class Decoder(nn.Module):
+    def __init__(self, output_dim, emb_dim, hid_dim, n_layers, dropout):
+        super().__init__()
+        self.output_dim = output_dim
+        self.embedding = nn.Embedding(output_dim, emb_dim)
+        self.rnn = nn.GRU(emb_dim, hid_dim, n_layers, dropout=dropout, batch_first=True)
+        self.fc_out = nn.Linear(hid_dim, output_dim)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, input, hidden):
+        # input shape: [batch_size, 1]
+        # hidden shape: [n_layers, batch_size, hid_dim]
+
+        embedded = self.dropout(self.embedding(input))
+        # embedded shape: [batch_size, 1, emb_dim]
+
+        output, hidden = self.rnn(embedded, hidden)
+        # output shape: [batch_size, 1, hid_dim]
+        # hidden shape: [n_layers, batch_size, hid_dim]
+
+        prediction = self.fc_out(output.squeeze(1))
+        # prediction shape: [batch_size, output_dim]
+
+        return prediction, hidden
+
+class Seq2Seq(nn.Module):
+    def __init__(self, encoder, decoder, device):
+        super().__init__()
+        self.encoder = encoder
+        self.decoder = decoder
+        self.device = device
+
+    def forward(self, src, trg, teacher_forcing_ratio=0.5):
+        # src shape: [batch_size, src_len]
+        # trg shape: [batch_size, trg_len]
+
+        batch_size = src.shape[0]
+        trg_len = trg.shape[1]
+        trg_vocab_size = self.decoder.output_dim
+
+        outputs = torch.zeros(batch_size, trg_len, trg_vocab_size).to(self.device)
+
+        _, hidden = self.encoder(src)
+
+        input = trg[:, 0].unsqueeze(1)  # Start token
+
+        for t in range(1, trg_len):
+            output, hidden = self.decoder(input, hidden)
+            outputs[:, t, :] = output
+            teacher_force = random.random() &lt; teacher_forcing_ratio
+            top1 = output.argmax(1)
+            input = trg[:, t].unsqueeze(1) if teacher_force else top1.unsqueeze(1)
+
+        return outputs
+</code></pre>
+<h3 id="load_terminology_dictionary"><code>load_terminology_dictionary</code></h3>
+<h4 id="_3">函數定義與參數</h4>
+<ul>
+<li><code>def load_terminology_dictionary(dict_file):</code>：定義一個函數，接受一個參數 <code>dict_file</code>，表示包含術語字典的檔案路徑。</li>
+</ul>
+<h4 id="_4">初始化術語詞典</h4>
+<ul>
+<li><code>terminology = {}</code>：初始化一個空字典 <code>terminology</code>，用於儲存術語字典。</li>
+</ul>
+<h4 id="_5">開啟檔案並讀取內容</h4>
+<ul>
+<li><code>with open(dict_file, 'r', encoding='utf-8') as f:</code>：使用 <code>utf-8</code> 編碼開啟檔案進行讀取操作。</li>
+<li><code>for line in f:</code>：逐行讀取檔案內容。</li>
+</ul>
+<h4 id="_6">解析並儲存術語對</h4>
+<ul>
+<li><code>en_term, ch_term = line.strip().split('\t')</code>：移除每行首尾的空白字符，然後使用製表符（<code>\t</code>）將每行分割成英文術語和中文術語。</li>
+<li><code>terminology[en_term] = ch_term</code>：將英文術語作為鍵，中文術語作為值，儲存到字典 <code>terminology</code> 中。</li>
+</ul>
+<h4 id="_7">傳回術語詞典</h4>
+<ul>
+<li><code>return terminology</code>：傳回載入好的術語字典。</li>
+</ul>
+<p><code>python
+ # 新增術語字典載入部分
+ def load_terminology_dictionary(dict_file):
+ terminology = {}
+ with open(dict_file, 'r', encoding='utf-8') as f:
+ for line in f:
+ en_term, ch_term = line.strip().split('\t')
+ terminology[en_term] = ch_term
+ return terminology</code></p>
+<h2 id="_8">主函數</h2>
+<p>這個函數透過批次資料訓練 seq2seq 模型，並傳回平均訓練損失。主要步驟包括前向傳播、損失計算、反向傳播、梯度裁剪和參數更新。可以在每個訓練輪次（epoch）中呼叫這個函數以訓練模型。</p>
+<h3 id="train"><code>train</code></h3>
+<h4 id="_9">參數</h4>
+<ul>
+<li><code>model</code>：要訓練的 seq2seq 模型。</li>
+<li><code>iterator</code>：資料載入器，用於迭代資料批次。</li>
+<li><code>optimizer</code>：優化器，用於更新模型參數。</li>
+<li><code>criterion</code>：損失函數，用於計算預測值和真實值之間的誤差。</li>
+<li><code>clip</code>：梯度裁切的閾值，用於防止梯度爆炸。</li>
+</ul>
+<h4 id="_10">函數內容</h4>
+<ol>
+<li><strong>設定模型為訓練模式</strong>：</li>
+</ol>
+<pre><code class="language-python"> model.train()
+ ```
+ 這會啟用 dropout 和 batch normalization。
+
+2. **初始化累積損失**：
+```python
+ epoch_loss = 0
+ ```
+
+3. **迭代資料批次**：
+```python
+ for i, (src, trg) in enumerate(iterator):
+ ```
+ 使用資料載入器 `iterator` 取得每個批次的來源序列 `src` 和目標序列 `trg`。
+
+4. **將資料移到裝置（CPU 或 GPU）**：
+```python
+ src, trg = src.to(device), trg.to(device)
+ ```
+
+5. **梯度清零**：
+```python
+ optimizer.zero_grad()
+ ```
+
+6. **前向傳播**：
+```python
+ output = model(src, trg)
+ ```
+
+7. **調整輸出和目標形狀**：
+```python
+ output_dim = output.shape[-1]
+ output = output[:, 1:].contiguous().view(-1, output_dim)
+ trg = trg[:, 1:].contiguous().view(-1)
+ ```
+ - `output[:, 1:]`：移除 `&lt;sos&gt;` token。
+ - `contiguous().view(-1, output_dim)`：調整 `output` 的形狀以適應損失計算。
+ - `trg[:, 1:]`：移除 `&lt;sos&gt;` token。
+ - `contiguous().view(-1)`：調整 `trg` 的形狀以適應損失計算。
+
+8. **計算損失**：
+```python
+ loss = criterion(output, trg)
+ ```
+
+9. **反向傳播**：
+```python
+ loss.backward()
+ ```
+
+10. **梯度裁剪**：
+```python
+ torch.nn.utils.clip_grad_norm_(model.parameters(), clip)
+ ```
+ 這可以防止梯度爆炸。
+
+11. **更新模型參數**：
+```python
+ optimizer.step()
+ ```
+
+12. **累積損失**：
+```python
+ epoch_loss += loss.item()
+ ```
+
+#### 傳回平均損失
+『`python
+return epoch_loss / len(iterator)
+</code></pre>
+<p>將累積損失除以迭代次數，傳回平均每批的損失。</p>
+<h1 id="task02">Task02</h1>
+<p><img alt="image-20240717200826293" src="%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2% E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91.assets/image-20240717200826293.png" /></p>
+<p>第二次訓練使用了第二份程式碼來運行，訓練了兩次但效果不佳哈哈哈，分數現在還沒有評出來。對於我這種只是大概知道要劃分訓練集測試集的崽來講，具體訓練的方法還是曉得哈哈哈，於是這份筆記補充了一些資料。</p>
+<p>首先是需要額外安裝的幾個套件</p>
+<h3 id="torchtext"><strong>torchtext</strong></h3>
+<p>PyTorch 的一個擴充庫，專門用於自然語言處理 (NLP) 任務。提供了一組工具和資料處理管線，用於處理文字數據，建立詞彙表，載入預先訓練的字詞嵌入，以及建立和操作文字資料集。</p>
+<p><strong>資料載入和預處理</strong>：</p>
+<ul>
+<li>提供了從常見的文字格式（如 CSV、JSON、TSV 等）載入資料的功能。</li>
+<li>支援文字資料的分詞、標記化、數位化等預處理操作。</li>
+</ul>
+<p><strong>詞彙表</strong>：</p>
+<ul>
+<li>允許建立和管理詞彙表，包括計算詞頻、過濾低頻詞和創建詞到索引的映射。</li>
+<li>支援從預訓練的嵌入（如 GloVe, FastText）中載入詞向量。</li>
+</ul>
+<p><strong>嵌入表示</strong>：</p>
+<ul>
+<li>方便地載入和使用預訓練的詞嵌入。</li>
+<li>支援自訂字詞嵌入的訓練和微調。</li>
+</ul>
+<p><strong>資料集與迭代器</strong>：</p>
+<ul>
+<li>提供了常用 NLP 資料集的預定義載入器，如 IMDb, AG News, SQuAD 等。</li>
+<li>提供了一個靈活的資料迭代器，支援批次和動態填充，方便與 PyTorch 的資料載入器整合。</li>
+</ul>
+<h3 id="jieba">Jieba</h3>
+<p>是一個非常受歡迎的中文分詞工具庫，它能夠有效率地將中文文字切分成字詞。由於中文沒有明顯的詞邊界，分詞是自然語言處理 (NLP) 中的一個重要步驟。 Jieba 提供了以下主要功能：</p>
+<ol>
+<li><strong>精確模式</strong>：試圖將句子最精確地切開，適合文本分析。</li>
+<li><strong>全模式</strong>：把句子中所有可能的字詞都掃描出來，速度非常快，但是不能解決歧義。</li>
+<li><strong>搜尋引擎模式</strong>：在精確模式的基礎上，對長詞再次切分，提高召回率，適合用於搜尋引擎分詞。</li>
+</ol>
+<h4 id="sacrebleu">SacreBLEU</h4>
+<p>是一個標準化且便利的 BLEU 分數計算工具，主要用於機器翻譯評估。</p>
+<p>我們該次比賽的評分規則似乎是基於BLUE來的</p>
+<p>隨後是資料的預處理，清洗工作，訓練驗證模型。這是之前照貓畫虎的一個影像辨識系統</p>
+<p><img alt="image-20240717204005759" src="%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2% E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91.assets/image-20240717204005759.png" /></p>
+<p>對於資料量較大的模型（樣本數量達到萬級以上），對訓練集，驗證集，測試集的劃分一般為為98：1：1，而萬級以下資料的訓練，最典型的劃分比例是6：2：2。劃分資料如下圖所示。 <img alt="image-20240717204102240" src="%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2% E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91.assets/image-20240717204102240.png" /></p>
+<p><strong>循環神經網路、卷積神經網路、自註意力機制</strong>等都是模型常用的結構。</p>
+<h1 id="task03">Task03</h1>
+<p>在task3的模型中，運用了Transformer ，Transformer基於<strong>循環</strong>或<strong>卷積</strong>神經網路的序列到序列建模方法是現存機器翻譯任務中的經典方法，對於經典的捲積神經網絡</p>
+<p><strong>卷積神經網路演算法</strong>作為一種經典的深度學習演算法，又被稱為CNN演算法.，最初是用來針對手寫數字識別的，該是由多個層組成，主要包括輸入層、卷積層、池化層、全連接層和輸出層。</p>
+<p><strong>輸入層</strong>代表輸入的數據，它可以是一維也可以是多維；<strong>卷積層</strong>在整個網絡結構當中的位置處於最關鍵的位置，每個卷積層是由若干個卷積核組成，透過卷積運算對輸入層的特徵進行提取，並將其傳遞到下一層網路；卷積層後一般會加入池化層，<strong>池化層的</strong>作用是透過下採樣的操作，將特徵劃分為多個矩陣，並在每個矩陣中取相應的特徵值，來減少資料的維度而不改變資料的深度，從而達到減少參數數量提高運算速率的目的。具有平移不變性的特性；<strong>全連接層</strong>處於整個網路結構的尾端，在整個卷積神經網路模型當中扮演「分類器」的角色。全連接層透過對卷積層或池化層中具有類別區分性的局部資訊進行整合，將前一層的特徵資訊從高維空間轉到低維空間，並將前一層的特徵資訊轉換成輸出值，同時可以透過softmax邏輯迴歸進行對輸出值分類，該層也可稱為softmax 層。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><img alt="img" src="%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2% E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91.assets/wps1.jpg" /></td>
+</tr>
+</tbody>
+</table>
+<p>而對於Transformer，一張十分景點的圖片展現了它的魅力：</p>
+<p><img alt="cac07437-283a-4e79-a5a4-c2b40c2dc405" src="%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8% E5%B9%B2%E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91.assets/cac07437-283a-4e79- a5a4-c2b40c2dc405.png" /></p>
+<p>在調整過程中，最簡單的就是調參，將 epochs 調大一點，使用全部訓練集，以及調整模型的參數，如head、layers等。如果資料量允許，增加模型的深度（更多的編碼器/解碼器層）或寬度（更大的隱藏層尺寸），這通常可以提高模型的表達能力和翻譯質量，尤其是在處理複雜或專業內容時。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u62f7\u8c9d", "clipboard.copy": "\u62f7\u8c9d", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u627e\u5230\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.placeholder": "\u9375\u5165\u4ee5\u958b\u59cb\u6aa2\u7d22", "search.result.term.missing": "\u7f3a\u5931", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

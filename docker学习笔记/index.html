@@ -1,0 +1,2266 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../c%E9%A2%98/">
+      
+      
+        <link rel="next" href="../nvm%E4%BD%BF%E7%94%A8/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>docker学习笔记 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              docker学习笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文简体
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../zh-Hant/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" hreflang="zh-Hant" class="md-select__link">
+              中文繁体
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IrreplaceL/MkDocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IrreplaceL/MkDocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E5%B0%8F%E7%82%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux小炒.md
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C题1-1GPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    docker学习笔记
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    docker学习笔记
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      搜索是否有这个镜像（非本地）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      下载镜像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查系统是否有这个镜像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除镜像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="容器操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行容器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看运行中的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看所有容器，包括未启动的容器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      停掉
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      重启
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看应用占用情况
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看日志
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除容器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      run细细道来
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="run细细道来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      报错解决
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="报错解决">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      next：出现如下报错
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      进入容器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      保存镜像
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="保存镜像">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交镜像
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查镜像列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      保存镜像
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      加载镜像
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      分享社区
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分享社区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      登陆 docker login
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      为镜像改名
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      推送镜像
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储-目录挂载
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储-目录挂载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      目录挂载：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      列出所有的卷
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      手动创建卷
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看某一个卷的详情
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建自定义网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看所有网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看容器详情
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composeyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用compose.yaml启动容器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用compose.yaml启动容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除创建的镜像
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      一键安装超多中间件
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvm%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nvm使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poweshell%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poweshell后台运行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python不完整的基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim%E9%AA%9A%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vim骚操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wordpress%E6%B5%85%E5%B0%9D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    wordpress浅尝
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B3%E4%BA%8ESora%E7%9A%84%E4%B8%80%E5%88%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于Sora的一切
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前后端分离项目博客
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2%E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于术语词典干预的机器翻译
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何创建一个MkDocs网站并自动化部署到GitHub上
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学建模
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1C%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学建模C题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E7%9A%86%E5%AF%82%E5%AF%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学皆寂寞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8D%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习不入门到入土
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%BF%AB%E8%BF%87%E6%9C%9F%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    记一次在快过期的阿里云服务器安装docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%98%BF%E9%87%8C%E4%BA%91oo%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    阿里云oos对象存储
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      搜索是否有这个镜像（非本地）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      下载镜像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查系统是否有这个镜像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除镜像
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="容器操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行容器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看运行中的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看所有容器，包括未启动的容器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      停掉
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      重启
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看应用占用情况
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看日志
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除容器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      run细细道来
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="run细细道来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      报错解决
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="报错解决">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      next：出现如下报错
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      进入容器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      保存镜像
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="保存镜像">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交镜像
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查镜像列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      保存镜像
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      加载镜像
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      分享社区
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分享社区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      登陆 docker login
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      为镜像改名
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      推送镜像
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储-目录挂载
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储-目录挂载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      目录挂载：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      列出所有的卷
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      手动创建卷
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看某一个卷的详情
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建自定义网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看所有网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看容器详情
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composeyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用compose.yaml启动容器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用compose.yaml启动容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除创建的镜像
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      一键安装超多中间件
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="docker">docker学习笔记</h1>
+<p>在上文中，服务器上搞好focker了，下载了一个windTerm，第一次使用第三方远程工具。这玩意有点丑，不过也不需要每次打开阿里云官网，打开云服务器再连接</p>
+<p><img alt="image-20240708151322745" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708151322745.png" /></p>
+<h5 id="_1">搜索是否有这个镜像（非本地）</h5>
+<pre><code class="language-shell">docker search nginx
+</code></pre>
+<p>name表示名称，description表示描述 ，offical表示是否为官方镜像</p>
+<p><img alt="image-20240708151951165" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708151951165.png" /></p>
+<h5 id="_2">下载镜像</h5>
+<pre><code>docker pull nginx
+</code></pre>
+<ul>
+<li>
+<p>下载指定版本镜像，浏览官网查找完整镜像标签。完整下载版命令（从hub上找）</p>
+</li>
+<li>
+<p><code>docker pull nginx:1.26.0</code></p>
+</li>
+</ul>
+<p>https://hub.docker.com/</p>
+<p><img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708161700710.png" alt="image-20240708161700710" style="zoom:50%;" /></p>
+<p>在Tags中寻找镜像版本，复制命令</p>
+<p><img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708161904494.png" alt="image-20240708161904494" style="zoom:50%;" /></p>
+<ul>
+<li>如果不能拉取成功，那么就配置镜像加速试试（我真搞不明白。不是说已经全盘崩掉了吗，为什么还能用啊，我想了好久为什么官网的为什么不能用，原来是服务器是远程的！！！心碎，只好试试镜像加速行不行，结果行？这是为什么）</li>
+</ul>
+<pre><code class="language-shell">\# 配置加速
+
+sudo mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+
+{
+
+  &quot;registry-mirrors&quot;: [&quot;https://82m9ar63.mirror.aliyuncs.com&quot;]
+
+}
+
+EOF
+
+sudo systemctl daemon-reload
+
+sudo systemctl restart docker
+</code></pre>
+<h5 id="_3">检查系统是否有这个镜像</h5>
+<pre><code class="language-shell">docker images
+docker images ls  // 完整查看所有镜像（包括版本号不同的）
+</code></pre>
+<p><img alt="image-20240708161126470" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708161126470.png" /></p>
+<p>从左到右分别是：镜像名、版本（lastest为最新，但目前这种情况也已经无法确定了）、镜像唯一ID、创建时间、大小</p>
+<h5 id="_4">删除镜像</h5>
+<pre><code>docker rmi nginx:latest       // 完整名称来删除
+
+docker rmi 605c77e624dd  // 利用唯一Id删除
+</code></pre>
+<h2 id="_5">容器操作</h2>
+<h5 id="_6">运行容器</h5>
+<pre><code>docker run nginx:latest
+</code></pre>
+<p>如果不指定版本号，那么就默认使用最新镜像，而不是已有的镜像。如果没有的话，则会自动下载</p>
+<h5 id="_7">查看运行中的应用</h5>
+<pre><code>docker ps
+</code></pre>
+<p><img alt="image-20240708164354162" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708164354162.png" /></p>
+<p>从左到右，容器唯一ID、镜像名和版本号，启动命令，创建时间、状态（up表示没问题，Exited为退出）、端口号、容器名（随机）</p>
+<h5 id="_8">查看所有容器，包括未启动的容器</h5>
+<pre><code>docker ps -a  
+</code></pre>
+<p>启动容器</p>
+<pre><code>docker start nginx
+
+docker start 2ae  // 可只写三位，如果能同其他镜像区分
+</code></pre>
+<h5 id="_9">停掉</h5>
+<pre><code>docker stop nginx
+
+//同上，或使用应用名NAMES
+</code></pre>
+<h5 id="_10">重启</h5>
+<p>重启后唯一ID和容器名似乎会再次分配</p>
+<pre><code>docker restart 2ae
+</code></pre>
+<h5 id="_11">查看应用占用情况</h5>
+<pre><code>docker stats 2aex
+</code></pre>
+<p>每秒发生变化</p>
+<p><img alt="image-20240708165914050" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708165914050.png" /></p>
+<h5 id="_12">查看日志</h5>
+<pre><code>docker logs 2a
+</code></pre>
+<h5 id="_13">删除容器</h5>
+<pre><code>docker rm 2a
+</code></pre>
+<p>注意：如果想删除一个容器，必须要将容器停了才能删除</p>
+<p>或强制删除</p>
+<pre><code class="language-sh">docker rm -f 2a
+</code></pre>
+<p>注意区别，rm删除容器，rmi删除镜像</p>
+<p>一次删除所有容器</p>
+<pre><code class="language-sh">docker rm -f $(docker ps -aq)
+</code></pre>
+<h2 id="run">run细细道来</h2>
+<pre><code class="language-sh">docker run -d --name yourname -p 2348:80 nginx
+</code></pre>
+<p>-d ：后台运行</p>
+<p>--name 为容器定义名字</p>
+<p>-p 端口号映射 容器内映射到本机 <strong>（！！是将容器内80端口映射到服务器2348端口，注意顺序）</strong></p>
+<p><img alt="image-20240708172302412" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708172302412.png" /></p>
+<p><img alt="image-20240708202424890" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708202424890.png" /></p>
+<p>启动后会打印完整用户ID，用ps查看后发现，唯一ID已经发生变化</p>
+<h5 id="_14">报错解决</h5>
+<p><img alt="image-20240708201759007" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708201759007.png" /></p>
+<p>说明端口号被占用</p>
+<pre><code class="language-sh">netstat -tanlp  #查看占用端口命令
+</code></pre>
+<p><img alt="image-20240708201912921" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708201912921.png" /></p>
+<p>杀死进程</p>
+<pre><code class="language-sh">kill 735
+</code></pre>
+<p>即可再次创建docker容器</p>
+<h6 id="next">next：出现如下报错</h6>
+<pre><code>tcpdocker: Error response from daemon: driver failed programming external connectivity on endpoint mynginx2 (7501b9388a430f5057abce361eb7c970f223cdac69033e8f0728cb993c1261f8):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 2349 -j DNAT --to-destination 172.17.0.3:80 ! -i docker0: iptables: No chain/target/match by that name.
+</code></pre>
+<p>运行如下</p>
+<pre><code class="language-sh">systemctl restart docker
+</code></pre>
+<h5 id="_15">进入容器</h5>
+<pre><code class="language-sh">docker exec -it ac /bin/bash
+</code></pre>
+<p><img alt="image-20240708203254847" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240708203254847.png" /></p>
+<p><code>exit</code> 退出容器内部</p>
+<h2 id="_16">保存镜像</h2>
+<h5 id="_17">提交镜像</h5>
+<pre><code class="language-sh">docker commit
+</code></pre>
+<p>创建一个镜像，可以将容器内部情况全部复制，打包成一个新的镜像</p>
+<p><img alt="image-20240710103807250" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710103807250.png" /></p>
+<p>-a 指定作者</p>
+<p>-c 有哪些改变的列表</p>
+<p>-m 此次提交的信息</p>
+<p>-p 打包期间暂停容器运行</p>
+<pre><code>docker commit  -m &quot;提交信息&quot; mynginx mynginx:v1.0
+</code></pre>
+<h5 id="_18">检查镜像列表</h5>
+<p><img alt="image-20240710104146893" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104146893.png" /></p>
+<h5 id="_19">保存镜像</h5>
+<pre><code>docker save
+</code></pre>
+<p><img alt="image-20240710104311397" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104311397.png" /></p>
+<p><img alt="image-20240710104232104" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104232104.png" /></p>
+<h5 id="_20">加载镜像</h5>
+<pre><code>docker load
+</code></pre>
+<p><img alt="image-20240710104457599" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104457599.png" /></p>
+<p><img alt="image-20240710104436077" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104436077.png" /></p>
+<h2 id="_21">分享社区</h2>
+<h5 id="docker-login">登陆 docker login</h5>
+<p><img alt="image-20240710104821446" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710104821446.png" /></p>
+<h5 id="_22">为镜像改名</h5>
+<pre><code>docker tag
+</code></pre>
+<p>上传的镜像为用户名加镜像名，故上传前需要用docker tag 进行改名，下图显示docker tag 的用法以及改名后虽然名字不同，但唯一ID是一样的，说明是同一个镜像</p>
+<p><img alt="image-20240710105002484" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710105002484.png" /></p>
+<p><strong>制作一个最新版本，便于在社区下载</strong></p>
+<p><img alt="image-20240710105525240" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710105525240.png" /></p>
+<h5 id="_23">推送镜像</h5>
+<pre><code>docker push
+</code></pre>
+<p>（此时不能写镜像id，因为一样而无法区分）</p>
+<p><img alt="image-20240710105235244" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710105235244.png" /></p>
+<h2 id="-">存储-目录挂载</h2>
+<h5 id="_24">目录挂载：</h5>
+<pre><code> -v /app/nghtml:/usr/share/nginx/html
+</code></pre>
+<p>（本机目录-&gt;容器目录，以本机目录为主，新建后如果本机目录没有东西则容器内页也没有，用在docker run上）</p>
+<p>卷映射：</p>
+<pre><code>-v ngconf:/etc/nginx  
+</code></pre>
+<p>（外部目录以内部目录为准）</p>
+<p>目录统一挂载到本机<code>/var/lib/docker/volumes/&lt;volume-name&gt;</code>   （上方卷映射卷名为ngconf）</p>
+<p>删除容器时，卷不会被删除，数据依然存在</p>
+<h5 id="_25">列出所有的卷</h5>
+<pre><code>docker volume ls
+</code></pre>
+<h5 id="_26">手动创建卷</h5>
+<pre><code>docker volume create  &lt;volume-name&gt; 
+</code></pre>
+<h5 id="_27">查看某一个卷的详情</h5>
+<pre><code>docker volume inspect &lt;volume-name&gt; 
+</code></pre>
+<p>下图打印卷所在的真正位置</p>
+<p><img alt="image-20240710111912323" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710111912323.png" /></p>
+<h2 id="_28">自定义网络</h2>
+<p>docker为每个容器分配唯一ip，使用 <strong>容器ip+容器端口</strong> 可以互相访问</p>
+<p>ip由于各种原因可能会变化,docker()默认不支持主机域名访问，故使用自定义网络。</p>
+<p>创建自定义网络后，容器名就是稳定域名</p>
+<h5 id="_29">创建自定义网络</h5>
+<pre><code>docker network create mynet
+</code></pre>
+<h5 id="_30">查看所有网络</h5>
+<pre><code>docker network ls
+</code></pre>
+<p><img alt="image-20240710113948042" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710113948042.png" /></p>
+<p><strong>bridge桥接网络</strong></p>
+<p>当创建好自定义网络后，需要在docker run中使用，将容器添加到自定义网络</p>
+<pre><code>docker run -d -p 2341:80 --name myapp1 --network mynet nginx
+</code></pre>
+<p>-e 添加环境变量</p>
+<h5 id="_31">查看容器详情</h5>
+<pre><code>docker inspect myapp1 
+</code></pre>
+<p><img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114824261.png" alt="image-20240710114824261" style="zoom:50%;" /></p>
+<p><img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710114905130.png" alt="image-20240710114905130" style="zoom:50%;" /></p>
+<h2 id="docker-compose">docker compose</h2>
+<p><img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710195653829.png" alt="image-20240710195653829" style="zoom:67%;" /></p>
+<p><img src="docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710195855972.png" alt="image-20240710195855972" style="zoom:67%;" /></p>
+<p>创建自定义网络</p>
+<pre><code class="language-sh">docker network create blog
+</code></pre>
+<p>创建mysql数据库（\为换行）</p>
+<pre><code class="language-sh">docker run -d -p 3307:3306 \-e MYSOL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=wordpress -v mysql-data:/var/lib/mysql -v/app/myconf:/etc/mysql/conf.d \--restart always --name mysql --network blog mysql:8.0
+</code></pre>
+<p>创建wordpress</p>
+<pre><code class="language-sh">\#启动wordpress
+
+docker run -d -p 8080:80 \
+
+-e WORDPRESS_DB_HOST=mysql \
+
+-e WORDPRESS_DB_USER=root \
+
+-e WORDPRESS_DB_PASSWORD=123456 \
+
+-e WORDPRESS_DB_NAME=wordpress \
+
+-v wordpress:/var/www/html \
+
+--restart always --name wordpress-app \
+
+--network blog \
+
+wordpress:latest
+</code></pre>
+<h3 id="composeyaml">使用compose.yaml启动容器</h3>
+<p><img alt="image-20240710204606174" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710204606174.png" /></p>
+<p>编辑一个yarl文件</p>
+<pre><code>vim compose.yaml
+</code></pre>
+<p>进入编辑compose文件中，将下方代码粘贴，随后<code>:wq</code>退出保存，利用<code>ls</code>查看是否存在该文件</p>
+<pre><code class="language-yaml">name: myblog     #compose名称
+services:        #  服务，这个yaml文件中启用两个镜像，一个是mysql，一个是博客镜像wordpress 
+  mysql:            #mysql镜像配置
+    container_name: mysql     
+    image: mysql:8.0      #所使用的镜像版本
+    ports:                  #端口号配置
+      - &quot;3307:3306&quot;         #数组的写法
+    environment:            #环境变量
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=wordpress
+    volumes:                    #挂载
+      - mysql-data:/var/lib/mysql    #卷挂载需要在最外层指定
+      - /app/myconf:/etc/mysql/conf.d 
+    restart: always       #开机自动启动
+    networks:          #加入到自定义网络，该网络也需要在最外层指定
+      - blog
+
+  wordpress:
+    image: wordpress
+    ports:
+      - &quot;8081:80&quot;
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: 123456
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress:/var/www/html
+    restart: always
+    networks:
+      - blog
+    depends_on:         #该镜像依赖于mysql，需要mysql启动后才能docker run这个
+      - mysql
+
+volumes:            #指定卷挂载
+  mysql-data:
+  wordpress:
+
+networks:               #指定自定义网络
+  blog:
+</code></pre>
+<p>在启动前，将上次创建的容器、卷、自定义网络全部删除</p>
+<p><img alt="image-20240710210314603" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710210314603.png" /><img alt="image-20240710210349934" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710210349934.png" /></p>
+<p>一次性启动所有容器</p>
+<pre><code>docker compose -f compose.yaml up -d
+</code></pre>
+<p>-f 指定启动的文件，如果不指定默认以compose.yaml文件启动 </p>
+<p>-d 后台启动</p>
+<p><img alt="image-20240710212301437" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710212301437.png" /></p>
+<p>注意：所创建的卷名，自定义网络名不是单纯的卷名，网络名，而是应用名_卷名等，如在这个例中中，yarl文件中  <code>name: myblog</code>，加上 </p>
+<pre><code>networks:          #加入到自定义网络，该网络也需要在最外层指定
+      - blog
+</code></pre>
+<p>故自定义网络名为<code>myblog_blog</code></p>
+<h5 id="_32">移除创建的镜像</h5>
+<p><img alt="image-20240710212839879" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710212839879.png" /></p>
+<h2 id="dockerfile"><strong>Dockerfile</strong></h2>
+<p>将自己的jar包打包成镜像（好多配置）</p>
+<pre><code class="language-sh">FROM openjdk:17
+
+LABEL author=leifengyang
+
+COPY app.jar /app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]
+</code></pre>
+<h2 id="_33"><a href="https://www.yuque.com/leifengyang/sutong/au0lv3sv3eldsmn8#apfCS"> 一键安装超多中间件</a></h2>
+<p><img alt="image-20240710214316081" src="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.assets/image-20240710214316081.png" /></p>
+<p>来自尚硅谷</p>
+<pre><code class="language-yaml">#Disable memory paging and swapping performance
+sudo swapoff -a
+
+# Edit the sysctl config file
+sudo vi /etc/sysctl.conf
+
+# Add a line to define the desired value
+# or change the value if the key exists,
+# and then save your changes.
+vm.max_map_count=262144
+
+# Reload the kernel parameters using sysctl
+sudo sysctl -p
+
+# Verify that the change was applied by checking the value
+cat /proc/sys/vm/max_map_count
+</code></pre>
+<p>注意：
+●将下面文件中 kafka 的  119.45.147.122 改为你自己的服务器IP。
+●所有容器都做了时间同步，这样容器的时间和linux主机的时间就一致了
+准备一个 compose.yaml文件，内容如下：</p>
+<pre><code class="language-yaml">name: devsoft
+services:
+  redis:
+    image: bitnami/redis:latest
+    restart: always
+    container_name: redis
+    environment:
+      - REDIS_PASSWORD=123456
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/bitnami/redis/data
+      - redis-conf:/opt/bitnami/redis/mounted-etc
+      - /etc/localtime:/etc/localtime:ro
+
+  mysql:
+    image: mysql:8.0.31
+    restart: always
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - '3306:3306'
+      - '33060:33060'
+    volumes:
+      - mysql-conf:/etc/mysql/conf.d
+      - mysql-data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+
+  rabbit:
+    image: rabbitmq:3-management
+    restart: always
+    container_name: rabbitmq
+    ports:
+      - &quot;5672:5672&quot;
+      - &quot;15672:15672&quot;
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=rabbit
+      - RABBITMQ_DEFAULT_VHOST=dev
+    volumes:
+      - rabbit-data:/var/lib/rabbitmq
+      - rabbit-app:/etc/rabbitmq
+      - /etc/localtime:/etc/localtime:ro
+  opensearch-node1:
+    image: opensearchproject/opensearch:2.13.0
+    container_name: opensearch-node1
+    environment:
+      - cluster.name=opensearch-cluster # Name the cluster
+      - node.name=opensearch-node1 # Name the node that will run in this container
+      - discovery.seed_hosts=opensearch-node1,opensearch-node2 # Nodes to look for when discovering the cluster
+      - cluster.initial_cluster_manager_nodes=opensearch-node1,opensearch-node2 # Nodes eligibile to serve as cluster manager
+      - bootstrap.memory_lock=true # Disable JVM heap memory swapping
+      - &quot;OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m&quot; # Set min and max JVM heap sizes to at least 50% of system RAM
+      - &quot;DISABLE_INSTALL_DEMO_CONFIG=true&quot; # Prevents execution of bundled demo script which installs demo certificates and security configurations to OpenSearch
+      - &quot;DISABLE_SECURITY_PLUGIN=true&quot; # Disables Security plugin
+    ulimits:
+      memlock:
+        soft: -1 # Set memlock to unlimited (no soft or hard limit)
+        hard: -1
+      nofile:
+        soft: 65536 # Maximum number of open files for the opensearch user - set to at least 65536
+        hard: 65536
+    volumes:
+      - opensearch-data1:/usr/share/opensearch/data # Creates volume called opensearch-data1 and mounts it to the container
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 9200:9200 # REST API
+      - 9600:9600 # Performance Analyzer
+
+  opensearch-node2:
+    image: opensearchproject/opensearch:2.13.0
+    container_name: opensearch-node2
+    environment:
+      - cluster.name=opensearch-cluster # Name the cluster
+      - node.name=opensearch-node2 # Name the node that will run in this container
+      - discovery.seed_hosts=opensearch-node1,opensearch-node2 # Nodes to look for when discovering the cluster
+      - cluster.initial_cluster_manager_nodes=opensearch-node1,opensearch-node2 # Nodes eligibile to serve as cluster manager
+      - bootstrap.memory_lock=true # Disable JVM heap memory swapping
+      - &quot;OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m&quot; # Set min and max JVM heap sizes to at least 50% of system RAM
+      - &quot;DISABLE_INSTALL_DEMO_CONFIG=true&quot; # Prevents execution of bundled demo script which installs demo certificates and security configurations to OpenSearch
+      - &quot;DISABLE_SECURITY_PLUGIN=true&quot; # Disables Security plugin
+    ulimits:
+      memlock:
+        soft: -1 # Set memlock to unlimited (no soft or hard limit)
+        hard: -1
+      nofile:
+        soft: 65536 # Maximum number of open files for the opensearch user - set to at least 65536
+        hard: 65536
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - opensearch-data2:/usr/share/opensearch/data # Creates volume called opensearch-data2 and mounts it to the container
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.13.0
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601 # Map host port 5601 to container port 5601
+    expose:
+      - &quot;5601&quot; # Expose port 5601 for web access to OpenSearch Dashboards
+    environment:
+      - 'OPENSEARCH_HOSTS=[&quot;http://opensearch-node1:9200&quot;,&quot;http://opensearch-node2:9200&quot;]'
+      - &quot;DISABLE_SECURITY_DASHBOARDS_PLUGIN=true&quot; # disables security dashboards plugin in OpenSearch Dashboards
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  zookeeper:
+    image: bitnami/zookeeper:3.9
+    container_name: zookeeper
+    restart: always
+    ports:
+      - &quot;2181:2181&quot;
+    volumes:
+      - &quot;zookeeper_data:/bitnami&quot;
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: 'bitnami/kafka:3.4'
+    container_name: kafka
+    restart: always
+    hostname: kafka
+    ports:
+      - '9092:9092'
+      - '9094:9094'
+    environment:
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://0.0.0.0:9094
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://119.45.147.122:9094
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - &quot;KAFKA_HEAP_OPTS=-Xmx512m -Xms512m&quot;
+    volumes:
+      - kafka-conf:/bitnami/kafka/config
+      - kafka-data:/bitnami/kafka/data
+      - /etc/localtime:/etc/localtime:ro
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      DYNAMIC_CONFIG_ENABLED: true
+      KAFKA_CLUSTERS_0_NAME: kafka-dev
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    volumes:
+      - kafkaui-app:/etc/kafkaui
+      - /etc/localtime:/etc/localtime:ro
+
+  nacos:
+    image: nacos/nacos-server:v2.3.1
+    container_name: nacos
+    ports:
+      - 8848:8848
+      - 9848:9848
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - JVM_XMX=512m
+      - JVM_XMS=512m
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=nacos-mysql
+      - MYSQL_SERVICE_DB_NAME=nacos_devtest
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=nacos
+      - MYSQL_SERVICE_PASSWORD=nacos
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true
+      - NACOS_AUTH_IDENTITY_KEY=2222
+      - NACOS_AUTH_IDENTITY_VALUE=2xxx
+      - NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789
+      - NACOS_AUTH_ENABLE=true
+    volumes:
+      - /app/nacos/standalone-logs/:/home/nacos/logs
+      - /etc/localtime:/etc/localtime:ro
+    depends_on:
+      nacos-mysql:
+        condition: service_healthy
+  nacos-mysql:
+    container_name: nacos-mysql
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM mysql:8.0.31
+        ADD https://raw.githubusercontent.com/alibaba/nacos/2.3.2/distribution/conf/mysql-schema.sql /docker-entrypoint-initdb.d/nacos-mysql.sql
+        RUN chown -R mysql:mysql /docker-entrypoint-initdb.d/nacos-mysql.sql
+        EXPOSE 3306
+        CMD [&quot;mysqld&quot;, &quot;--character-set-server=utf8mb4&quot;, &quot;--collation-server=utf8mb4_unicode_ci&quot;]
+    image: nacos/mysql:8.0.30
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nacos_devtest
+      - MYSQL_USER=nacos
+      - MYSQL_PASSWORD=nacos
+      - LANG=C.UTF-8
+    volumes:
+      - nacos-mysqldata:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - &quot;13306:3306&quot;
+    healthcheck:
+      test: [ &quot;CMD&quot;, &quot;mysqladmin&quot; ,&quot;ping&quot;, &quot;-h&quot;, &quot;localhost&quot; ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  prometheus:
+    image: prom/prometheus:v2.52.0
+    container_name: prometheus
+    restart: always
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus-data:/prometheus
+      - prometheus-conf:/etc/prometheus
+      - /etc/localtime:/etc/localtime:ro
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: grafana
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - /etc/localtime:/etc/localtime:ro
+
+volumes:
+  redis-data:
+  redis-conf:
+  mysql-conf:
+  mysql-data:
+  rabbit-data:
+  rabbit-app:
+  opensearch-data1:
+  opensearch-data2:
+  nacos-mysqldata:
+  zookeeper_data:
+  kafka-conf:
+  kafka-data:
+  kafkaui-app:
+  prometheus-data:
+  prometheus-conf:
+  grafana-data:
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

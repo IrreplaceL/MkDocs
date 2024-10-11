@@ -1,0 +1,1280 @@
+
+<!doctype html>
+<html lang="zh-Hant" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../c3/">
+      
+      
+        <link rel="next" href="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>C题1-1GPT - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c1-1gpt" class="md-skip">
+          跳轉至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../" title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C题1-1GPT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="選擇語言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../c%E9%A2%98/" hreflang="zh" class="md-select__link">
+              中文简体
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh-Hant" class="md-select__link">
+              中文繁体
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空" aria-label="清空" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IrreplaceL/MkDocs" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導航" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IrreplaceL/MkDocs" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E5%B0%8F%E7%82%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux小炒.md
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    C题1-1GPT
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    C题1-1GPT
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题1：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题1：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题1-1：超过部分滞销，造成浪费
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2202350" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题1-2：超过部分按2023年销售价格的50%降价出售
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题2：考虑多种不确定性因素
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题3：考虑替代性和互补性
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker学习笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvm%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nvm使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poweshell%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poweshell后台运行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python不完整的基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim%E9%AA%9A%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vim骚操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wordpress%E6%B5%85%E5%B0%9D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    wordpress浅尝
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B3%E4%BA%8ESora%E7%9A%84%E4%B8%80%E5%88%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    關於Sora的一切
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前后端分离项目博客
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2%E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基於術語字典幹預的機器翻譯
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何创建一个MkDocs网站并自动化部署到GitHub上
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    報錯
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    數學建模
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1C%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学建模C题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E7%9A%86%E5%AF%82%E5%AF%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学皆寂寞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8D%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习不入门到入土
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%BF%AB%E8%BF%87%E6%9C%9F%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    记一次在快过期的阿里云服务器安装docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%98%BF%E9%87%8C%E4%BA%91oo%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    阿里云oos对象存储
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题1：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题1：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题1-1：超过部分滞销，造成浪费
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2202350" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题1-2：超过部分按2023年销售价格的50%降价出售
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题2：考虑多种不确定性因素
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题3：考虑替代性和互补性
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="c1-1gpt">C题1-1GPT</h1>
+<p>针对2024年全国大学生数学建模竞赛C题“农作物的种植策略”，以下是每道题的解题思路：</p>
+<h3 id="1">问题1：</h3>
+<h4 id="1-1">问题1-1：超过部分滞销，造成浪费</h4>
+<ul>
+<li><strong>目标</strong>：在农作物未来的预期销售量、种植成本、亩产量和销售价格稳定的前提下，求解2024-2030年间农作物的最优种植方案，以最大化收益，并考虑到超过预期销售量的部分会造成浪费。</li>
+<li><strong>思路</strong>：</li>
+<li><strong>数据整理</strong>：根据附件1和附件2的数据，整理各地块的种植条件（地块类型、面积、适宜作物）以及2023年的种植情况和相关数据。</li>
+<li><strong>目标函数</strong>：设定以种植收益最大化为目标的线性规划模型。考虑每种作物的单价、亩产量和种植成本，结合销售量的限制，构建目标函数。</li>
+<li><strong>约束条件</strong>：<ul>
+<li>地块面积与作物种植面积的限制。</li>
+<li>每个地块每季的作物不能超过预期销售量。</li>
+<li>地块三年内至少种植一次豆类作物。</li>
+<li>同一地块每季不能连续重茬。</li>
+</ul>
+</li>
+<li><strong>优化求解</strong>：使用线性规划或整数规划方法求解该问题，并将结果填入result1_1.xlsx。</li>
+</ul>
+<h4 id="1-2202350">问题1-2：超过部分按2023年销售价格的50%降价出售</h4>
+<ul>
+<li><strong>目标</strong>：在农作物销售量、种植成本、亩产量和销售价格稳定的前提下，考虑超过预期销售量的部分以50%降价出售的情况下，求解2024-2030年间的最优种植方案。</li>
+<li><strong>思路</strong>：</li>
+<li><strong>数据整理</strong>：同问题1-1。</li>
+<li><strong>目标函数</strong>：与问题1-1类似，但在计算总收益时，超过销售量部分的收益应按50%计算。</li>
+<li><strong>约束条件</strong>：同问题1-1。</li>
+<li><strong>优化求解</strong>：求解并将结果填入result1_2.xlsx。</li>
+</ul>
+<h3 id="2">问题2：考虑多种不确定性因素</h3>
+<ul>
+<li><strong>目标</strong>：综合考虑农作物的预期销售量、亩产量、种植成本和销售价格的不确定性，以及潜在的种植风险，求解2024-2030年间的最优种植方案。</li>
+<li><strong>思路</strong>：</li>
+<li><strong>不确定性建模</strong>：将销售量、亩产量、种植成本和销售价格的波动用随机变量或场景分析表示。考虑不同情况下的种植方案。</li>
+<li><strong>目标函数</strong>：与问题1类似，但需要结合不确定性进行期望收益的最大化。</li>
+<li><strong>约束条件</strong>：同问题1，但需考虑可能的不确定因素对种植决策的影响。</li>
+<li><strong>优化求解</strong>：使用鲁棒优化或随机规划方法求解该问题，并将结果填入result2.xlsx。</li>
+</ul>
+<h3 id="3">问题3：考虑替代性和互补性</h3>
+<ul>
+<li><strong>目标</strong>：在问题2的基础上，进一步考虑农作物之间的替代性、互补性，以及销售量、销售价格和种植成本之间的相关性，求解2024-2030年间的最优种植策略，并与问题2的结果进行比较分析。</li>
+<li><strong>思路</strong>：</li>
+<li><strong>相关性分析</strong>：建立不同作物之间的替代性和互补性模型，以及预期销售量与销售价格、种植成本之间的相关性模型。</li>
+<li><strong>目标函数</strong>：在问题2的基础上引入相关性影响，调整目标函数。</li>
+<li><strong>约束条件</strong>：考虑作物之间的替代性和互补性关系，调整约束条件。</li>
+<li><strong>优化求解</strong>：采用多目标优化或组合优化的方法求解，并通过模拟数据进行验证和对比分析。</li>
+</ul>
+<p>通过以上思路，可以逐步解决题目提出的各个问题，得到最优的农作物种植策略。</p>
+<h1 id="1-1_1">采用线性规划模型求解1-1</h1>
+<p>问题1-1要求在农作物未来的预期销售量、种植成本、亩产量和销售价格稳定的情况下，求解2024-2030年间农作物的最优种植方案，同时考虑超过预期销售量的部分会造成浪费。</p>
+<h3 id="_1">解题步骤</h3>
+<p>我们可以使用线性规划来求解这个问题。以下是详细的代码实现步骤，使用Python的<code>PuLP</code>库来实现线性规划模型。</p>
+<h4 id="1_1">1. 导入必要的库</h4>
+<p>首先，导入Python中必要的库：</p>
+<pre><code class="language-python">import pandas as pd
+from pulp import *
+
+# 导入附件1和附件2的数据
+land_data = pd.read_excel('附件1.xlsx')
+crop_data = pd.read_excel('附件2.xlsx')
+</code></pre>
+<h4 id="2_1">2. 定义问题和决策变量</h4>
+<p>我们将定义一个线性规划问题，并且为每种作物在每个地块的种植面积定义决策变量。</p>
+<pre><code class="language-python"># 创建线性规划问题，目标是最大化利润
+model = LpProblem(&quot;Maximize_Profit&quot;, LpMaximize)
+
+# 决策变量：每种作物在每个地块上的种植面积
+# crops代表作物，lands代表地块
+crop_land_vars = LpVariable.dicts(&quot;crop_land&quot;, 
+                                  [(crop, land) for crop in crop_data['作物名称'] 
+                                   for land in land_data['地块名称']], 
+                                  lowBound=0, cat='Continuous')
+</code></pre>
+<h4 id="3_1">3. 定义目标函数</h4>
+<p>目标函数是要最大化各作物在各地块上的种植收益减去种植成本。超过销售量的部分收益为零。</p>
+<pre><code class="language-python"># 定义作物的销售价格、产量和种植成本
+sales_price = dict(zip(crop_data['作物名称'], crop_data['销售价格']))
+yield_per_acre = dict(zip(crop_data['作物名称'], crop_data['亩产量']))
+cost_per_acre = dict(zip(crop_data['作物名称'], crop_data['种植成本']))
+max_sales = dict(zip(crop_data['作物名称'], crop_data['预期销售量']))
+
+# 目标函数：总收益 = 每种作物的(产量 * 销售价格 - 种植成本) * 种植面积
+model += lpSum([
+    (yield_per_acre[crop] * sales_price[crop] - cost_per_acre[crop]) * crop_land_vars[(crop, land)]
+    for crop in crop_data['作物名称']
+    for land in land_data['地块名称']
+])
+</code></pre>
+<h4 id="4">4. 定义约束条件</h4>
+<p>包括地块面积限制、销售量限制、豆类作物轮种、重茬限制等。</p>
+<pre><code class="language-python"># 地块面积限制
+for land in land_data['地块名称']:
+    model += lpSum([crop_land_vars[(crop, land)] for crop in crop_data['作物名称']]) &lt;= land_data.loc[land_data['地块名称'] == land, '面积'].values[0]
+
+# 销售量限制：各作物的种植面积 * 亩产量 &lt;= 预期销售量
+for crop in crop_data['作物名称']:
+    model += lpSum([crop_land_vars[(crop, land)] * yield_per_acre[crop] for land in land_data['地块名称']]) &lt;= max_sales[crop]
+
+# 豆类作物轮种：每三年内至少种植一次豆类作物
+# (简化版约束, 可以扩展到更复杂的轮作条件)
+for land in land_data['地块名称']:
+    model += lpSum([crop_land_vars[(crop, land)] for crop in crop_data[crop_data['作物类型'] == '豆类']['作物名称']]) &gt;= 1
+
+# 重茬限制：同一地块同一作物不能连续重茬 (具体实现需要更多历史数据, 这里简化处理)
+</code></pre>
+<h4 id="5">5. 求解模型</h4>
+<p>求解模型并输出结果。</p>
+<pre><code class="language-python"># 求解模型
+model.solve()
+
+# 输出结果
+for v in model.variables():
+    if v.varValue &gt; 0:
+        print(v.name, &quot;=&quot;, v.varValue)
+
+# 总利润
+print(&quot;Total Profit = &quot;, value(model.objective))
+</code></pre>
+<h4 id="6-excel">6. 结果填入Excel</h4>
+<p>最后，将结果填入result1_1.xlsx中。</p>
+<pre><code class="language-python">result_df = pd.DataFrame([(v.name, v.varValue) for v in model.variables() if v.varValue &gt; 0], columns=['Variable', 'Value'])
+result_df.to_excel('result1_1.xlsx', index=False)
+</code></pre>
+<h3 id="_2">总结</h3>
+<p>上述代码实现了线性规划模型的建立与求解。通过定义作物的种植面积为决策变量，并结合目标函数和约束条件，最终求解出最优种植方案并计算出总利润。最终结果会被保存到Excel文件<code>result1_1.xlsx</code>中。</p>
+<p>注意：代码中的部分约束条件是简化版，可以根据实际需要进行调整和扩展，特别是在重茬限制和豆类作物轮种方面。</p>
+<h1 id="1-1_2">动态规划求解1-1</h1>
+<p>使用动态规划解决问题1-1的思路如下：</p>
+<h3 id="_3">问题概述</h3>
+<p>假设未来几年（2024-2030）的农作物销售量、种植成本、亩产量和销售价格保持稳定，并考虑到某种作物的产量超过预期销售量的部分会滞销，要求在给定的地块和资源条件下，规划出最优的种植方案，以最大化收益。</p>
+<h3 id="_4">动态规划思路</h3>
+<h4 id="1_2">1. 定义状态</h4>
+<p>动态规划的核心是定义“状态”和“状态转移方程”。在这个问题中，可以定义以下状态：</p>
+<ul>
+<li><strong>状态</strong> ( dp[i][j] ) 表示在前 ( i ) 块地里种植了 ( j ) 亩地的最优收益。</li>
+</ul>
+<p>这里的“地块”和“种植面积”是关键的状态变量，每一个状态对应一种选择和已经做出的决策。</p>
+<h4 id="2_2">2. 状态转移</h4>
+<p>状态转移的核心在于决定是否在当前地块种植某种作物。可以考虑如下的转移关系：</p>
+<ul>
+<li><strong>选择</strong>是否在第 ( i ) 块地里种植某种作物：</li>
+<li>如果选择在第 ( i ) 块地里种植某种作物，则计算种植该作物的收益（扣除成本后），并加到之前的最优收益上。</li>
+<li>如果不种植，则收益保持不变。</li>
+</ul>
+<p>状态转移方程可以表示为：
+[ dp[i][j] = \max(dp[i-1][j], dp[i-1][j - x] + profit(i, x)) ]
+其中 ( x ) 表示在第 ( i ) 块地种植的面积，( profit(i, x) ) 是种植该作物的收益。</p>
+<h4 id="3_2">3. 初始条件和边界条件</h4>
+<ul>
+<li><strong>初始条件</strong>：在没有任何地块的情况下，种植面积为0，收益也为0，即 ( dp[0][0] = 0 )。</li>
+<li><strong>边界条件</strong>：不能超过地块总面积和作物的最大种植面积限制，超出部分状态无效。</li>
+</ul>
+<h4 id="4_1">4. 决策过程</h4>
+<p>对于每块地，我们需要遍历所有可能的种植面积（从0到该地块的最大面积），并通过状态转移方程更新最优解。最终的解为最后一块地，种植了所有面积时的最大收益。</p>
+<h4 id="5_1">5. 结果提取</h4>
+<p>从最终状态中提取最优解。由于我们记录了每个状态的最优选择，因此可以通过回溯的方式得到每块地的种植方案。</p>
+<h3 id="_5">伪代码</h3>
+<pre><code class="language-python"># 初始化动态规划表格，地块数和总面积为维度
+dp = [[0 for _ in range(total_area + 1)] for _ in range(num_lands + 1)]
+
+# 状态转移
+for i in range(1, num_lands + 1):  # 对每块地
+    for j in range(total_area + 1):  # 对每种种植面积
+        for crop in available_crops:  # 对每种可种植的作物
+            for area in range(0, min(max_area[i], j) + 1):  # 对该作物的种植面积
+                profit = calculate_profit(crop, area, i)
+                dp[i][j] = max(dp[i][j], dp[i-1][j-area] + profit)
+
+# 提取结果
+max_profit = dp[num_lands][total_area]
+</code></pre>
+<h3 id="_6">优点和挑战</h3>
+<h4 id="_7">优点</h4>
+<ul>
+<li>动态规划可以有效处理复杂的约束条件，如地块类型、作物轮种和不允许连续重茬等。</li>
+<li>它可以考虑到每个地块和作物的独特特性，并结合历史数据进行优化。</li>
+</ul>
+<h4 id="_8">挑战</h4>
+<ul>
+<li>状态空间可能非常大（特别是在种植面积和地块数量较多的情况下），需要合理优化或使用压缩状态的方法。</li>
+<li>动态规划的求解速度可能比线性规划慢，特别是在需要高精度和复杂约束条件下。</li>
+</ul>
+<h3 id="_9">总结</h3>
+<p>使用动态规划来求解问题1-1时，我们通过定义合理的状态和状态转移方程，可以逐步构建出每个地块和作物的最优种植方案。虽然动态规划在处理多样化的约束条件时表现良好，但它的计算复杂度较高，适用于问题规模相对较小的情况。</p>
+<h3 id="_10">代码过程</h3>
+<p>下面是使用动态规划求解问题1-1的Python代码示例。该代码模拟了如何在不同地块上分配作物种植面积，以最大化总收益。</p>
+<h3 id="_11">代码实现</h3>
+<pre><code class="language-python">import pandas as pd
+import numpy as np
+
+# 假设你已经读取了地块数据和作物数据
+# 这里以简单的字典结构模拟数据
+
+# 地块数据，包含每个地块的最大可种植面积
+land_data = {
+    'land1': 300,
+    'land2': 400,
+    'land3': 500,
+}
+
+# 作物数据，包含每种作物的产量、销售价格、种植成本、预期销售量
+crop_data = {
+    'wheat': {'yield_per_acre': 1.5, 'price': 100, 'cost': 50, 'max_sales': 400},
+    'corn': {'yield_per_acre': 2.0, 'price': 80, 'cost': 40, 'max_sales': 600},
+    'rice': {'yield_per_acre': 1.2, 'price': 120, 'cost': 70, 'max_sales': 300},
+}
+
+# 动态规划表格初始化
+num_lands = len(land_data)
+total_area = sum(land_data.values())
+dp = np.zeros((num_lands + 1, total_area + 1))
+
+# 地块和作物的索引列表
+lands = list(land_data.keys())
+crops = list(crop_data.keys())
+
+# 状态转移
+for i in range(1, num_lands + 1):  # 遍历每块地
+    land = lands[i-1]
+    max_area = land_data[land]
+
+    for j in range(total_area + 1):  # 遍历可能的总种植面积
+        for crop in crops:  # 对每种作物
+            for area in range(0, min(max_area, j) + 1):  # 对可能的种植面积
+                yield_per_acre = crop_data[crop]['yield_per_acre']
+                price = crop_data[crop]['price']
+                cost = crop_data[crop]['cost']
+                max_sales = crop_data[crop]['max_sales']
+
+                # 计算作物收益，超过销售量的部分无收益
+                profit = yield_per_acre * min(area, max_sales) * price - area * cost
+                dp[i][j] = max(dp[i][j], dp[i-1][j-area] + profit)
+
+# 最大收益
+max_profit = dp[num_lands][total_area]
+print(&quot;Maximum Profit:&quot;, max_profit)
+
+# 反向追踪，得到具体种植方案
+solution = {}
+remaining_area = total_area
+for i in range(num_lands, 0, -1):
+    land = lands[i-1]
+    for crop in crops:
+        for area in range(0, min(land_data[land], remaining_area) + 1):
+            yield_per_acre = crop_data[crop]['yield_per_acre']
+            price = crop_data[crop]['price']
+            cost = crop_data[crop]['cost']
+            max_sales = crop_data[crop]['max_sales']
+
+            profit = yield_per_acre * min(area, max_sales) * price - area * cost
+            if dp[i][remaining_area] == dp[i-1][remaining_area-area] + profit:
+                solution[land] = (crop, area)
+                remaining_area -= area
+                break
+
+print(&quot;Optimal Planting Plan:&quot;)
+for land, (crop, area) in solution.items():
+    print(f&quot;Land: {land}, Crop: {crop}, Area: {area} acres&quot;)
+</code></pre>
+<h3 id="_12">代码解释</h3>
+<ol>
+<li>
+<p><strong>初始化数据</strong>：这里使用字典结构来模拟<code>land_data</code>和<code>crop_data</code>，分别存储地块和作物的相关信息。</p>
+</li>
+<li>
+<p><strong>动态规划表格</strong>：<code>dp</code>数组用于存储在每个地块和每种种植面积组合下的最大收益。行表示地块，列表示累积种植面积。</p>
+</li>
+<li>
+<p><strong>状态转移</strong>：</p>
+<ul>
+<li>对于每个地块，遍历可能的种植面积。</li>
+<li>对每种作物，遍历可能的种植面积。</li>
+<li>计算收益，考虑超出预期销售量部分的收益为零。</li>
+<li>更新<code>dp</code>表格，保留最大收益。</li>
+</ul>
+</li>
+<li>
+<p><strong>反向追踪</strong>：根据动态规划表格<code>dp</code>的值，反向追踪得到具体的种植方案。</p>
+</li>
+<li>
+<p><strong>输出结果</strong>：</p>
+<ul>
+<li>打印出最大收益<code>max_profit</code>。</li>
+<li>打印出每块地的最佳种植方案，包括作物类型和种植面积。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_13">结果分析</h3>
+<ul>
+<li><code>Maximum Profit</code>是种植方案的最大化收益。</li>
+<li><code>Optimal Planting Plan</code>展示了在各个地块上最佳种植方案，包括种植的作物及其面积。</li>
+</ul>
+<h3 id="_14">注意事项</h3>
+<ol>
+<li><strong>数据准备</strong>：实际问题中需要根据具体的附件数据来填充<code>land_data</code>和<code>crop_data</code>，并处理更复杂的约束条件。</li>
+<li><strong>扩展性</strong>：该代码框架可以扩展以处理更多的作物类型、地块类型和其他约束条件（如轮种、重茬等）。</li>
+<li><strong>计算复杂度</strong>：随着地块数量和种植面积的增加，动态规划的状态空间会快速增长，可能需要进一步优化。</li>
+</ol>
+<p>此代码为动态规划的基本实现，适用于问题1-1中的种植策略优化。</p>
+<p>农作物的预期销售量与销售价格、种植成本之间存在一定的相关性：</p>
+<p><strong><em>*销售量与销售价格的负相关性*</em></strong>：根据经济学原理，通常销售量和销售价格之间存在<strong><em>*负相关关系*</em></strong>，即价格上升会导致需求下降，反之亦然。我们可以通过需求价格弹性来描述这种关系：</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps7.jpg" /> </p>
+<p>负的价格弹性意味着价格上升会导致销售量减少，反之亦然。</p>
+<p><strong><em>*销售量与种植成本的相关性*</em></strong>：市场条件可能导致某些作物的种植成本和销售量具有相关性。例如，成本增加可能导致销售量下降，反之成本下降可能促进销售量增加。这种相关性可以通过相关系数来建模：</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps8.jpg" /> </p>
+<p>正的相关系数意味着种植成本上升时，销售量也会上升；负相关则表示成本上升时销售量下降。</p>
+<h3 id="11">一.1.1 <strong><em>*目标函数的改进*</em></strong></h3>
+<p>目标依然是最大化2024-2030年的总收益，但现在需要考虑作物替代性、互补性以及销售量、价格和成本的相关性。</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps9.jpg" /> </p>
+<p>这个目标函数与问题2中的形式相同，但我们将通过以下两种方式调整它以考虑作物替代性、互补性以及相关性。</p>
+<p><strong><em>*（2）考虑作物之间的替代性：*</em></strong></p>
+<p>作物 A 和作物 B 之间的替代性可以通过引入交叉弹性来调整种植面积。假设作物 A 和 B是替代品，则如果作物 B 的价格上升，我们可以减少种植作物 A 并增加作物 B 的种植面积。目标函数中，可以引入一个调整系数：</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps10.jpg" /> </p>
+<p>其中，<img alt="img" src="../../c%E9%A2%98.assets/wps11.jpg" /> 是一个基于交叉弹性的系数，表示作物 B 的价格变化对作物 A的种植决策的影响。</p>
+<p><strong><em>*（3）考虑作物之间的互补性：*</em></strong></p>
+<p>互补性可以通过提高种植在相邻地块或同一地块上作物的产量来表示。如果作物 A 和 B是互补的，则当它们同时种植时，作物 A 或 B 的产量将增加。我们可以在产量公式中增加一个互补性系数：</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps12.jpg" /> </p>
+<p>其中，<img alt="img" src="../../c%E9%A2%98.assets/wps13.jpg" /> 表示作物 A 和作物 B 之间的互补性。</p>
+<p><strong><em>*（4）销售量、价格与成本的相关性：*</em></strong></p>
+<p>为了考虑销售量、价格和成本之间的相关性，可以引入一个相关性矩阵，用于调整这些变量之间的相互影响。具体而言，当销售量、价格或成本发生变化时，可以通过相关性矩阵调整模型中的预期销售量或成本。例如：</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps14.jpg" /> </p>
+<p>其中，<img alt="img" src="../../c%E9%A2%98.assets/wps15.jpg" /> 是销售量和价格之间的相关性系数。</p>
+<h3 id="12">一.1.2 <strong><em>*约束条件*</em></strong></h3>
+<p>约束条件与问题2中的相同，包括耕地面积限制、作物种植条件、不重茬约束和豆类作物三年内种植一次的要求。</p>
+<p><strong><em>*耕地面积限制*</em></strong>： 每块地的总种植面积不能超过其实际面积，即：</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps16.jpg" /> </p>
+<p><strong><em>*作物种植条件*</em></strong>： 平旱地、梯田和山坡地只能种植粮食作物，水浇地可以种水稻或两季蔬菜，大棚可以种蔬菜和食用菌。</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps17.jpg" /> </p>
+<p><strong><em>*不重茬约束*</em></strong>： 同一地块不能在连续两年种植相同的作物，否则会减产：</p>
+<p><img alt="img" src="../../c%E9%A2%98.assets/wps18.jpg" /> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u62f7\u8c9d", "clipboard.copy": "\u62f7\u8c9d", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u627e\u5230\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.placeholder": "\u9375\u5165\u4ee5\u958b\u59cb\u6aa2\u7d22", "search.result.term.missing": "\u7f3a\u5931", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

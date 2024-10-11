@@ -1,0 +1,1318 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%85%B3%E4%BA%8ESora%E7%9A%84%E4%B8%80%E5%88%87/">
+      
+      
+        <link rel="next" href="../%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2%E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>前后端分离项目博客 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              前后端分离项目博客
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文简体
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../zh-Hant/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2/" hreflang="zh-Hant" class="md-select__link">
+              中文繁体
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IrreplaceL/MkDocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IrreplaceL/MkDocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    IrreplaceL/MkDocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E5%B0%8F%E7%82%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux小炒.md
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C题1-1GPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker学习笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvm%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nvm使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poweshell%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poweshell后台运行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python不完整的基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim%E9%AA%9A%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vim骚操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wordpress%E6%B5%85%E5%B0%9D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    wordpress浅尝
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B3%E4%BA%8ESora%E7%9A%84%E4%B8%80%E5%88%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于Sora的一切
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    前后端分离项目博客
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9F%BA%E4%BA%8E%E6%9C%AF%E8%AF%AD%E8%AF%8D%E5%85%B8%E5%B9%B2%E9%A2%84%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于术语词典干预的机器翻译
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMkDocs%E7%BD%91%E7%AB%99%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何创建一个MkDocs网站并自动化部署到GitHub上
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学建模
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1C%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学建模C题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E7%9A%86%E5%AF%82%E5%AF%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学皆寂寞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8D%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习不入门到入土
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%BF%AB%E8%BF%87%E6%9C%9F%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    记一次在快过期的阿里云服务器安装docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%98%BF%E9%87%8C%E4%BA%91oo%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    阿里云oos对象存储
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">前后端分离项目博客</h1>
+<p><img alt="image-20240716144542405" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240716144542405.png" /></p>
+<p>我觉得用注解更加简便，相比各种继承</p>
+<h1 id="_2">前端工程在后台运行</h1>
+<p>使用命令</p>
+<pre><code class="language-shell">Start-Process -FilePath &quot;npm&quot; -ArgumentList &quot;run dev&quot; -NoNewWindow -PassThru
+</code></pre>
+<p>原本命令为<code>npm run dev</code></p>
+<p><strong>进程序号会打印出来</strong></p>
+<p>查询进程</p>
+<pre><code>Get-Process
+</code></pre>
+<p>想要删除使用id号</p>
+<pre><code class="language-shell">Stop-Process -Id 11896
+</code></pre>
+<p>按时间查看进程</p>
+<pre><code class="language-shell"> Get-Process | Sort-Object StartTime
+</code></pre>
+<h4 id="redis">redis后台运行</h4>
+<pre><code class="language-shell"> Start-Process -FilePath &quot;redis-server&quot;  -WindowStyle Hidden
+</code></pre>
+<h3 id="cmdnodejs">记录进程号（该进程号为cmd进程号，非运行的nodejs工程进程号）</h3>
+<p>在启动进程时记录其进程ID，可以使用 <code>Start-Process</code> 命令的 <code>-PassThru</code> 参数。这将返回一个包含进程信息的对象，你可以从该对象中获取进程ID，并将其记录到文件或变量中。</p>
+<h3 id="id">示例：启动进程并记录进程ID</h3>
+<pre><code>powershell复制代码# 启动进程并返回进程对象
+$process = Start-Process -FilePath &quot;npm&quot; -ArgumentList &quot;run dev&quot; -NoNewWindow -PassThru
+
+# 输出进程ID和进程名称
+$process.Id
+$process.ProcessName
+
+# 保存进程ID到文件
+$process.Id &gt; &quot;process_id.txt&quot;
+</code></pre>
+<h3 id="id_1">示例：从文件读取进程ID并终止进程</h3>
+<ol>
+<li><strong>启动进程并记录进程ID</strong></li>
+</ol>
+<p>```
+   powershell复制代码# 启动进程并返回进程对象
+   $process = Start-Process -FilePath "npm" -ArgumentList "run dev" -NoNewWindow -PassThru</p>
+<p># 输出进程ID和进程名称
+   $process.Id
+   $process.ProcessName</p>
+<p># 保存进程ID到文件
+   $process.Id &gt; "process_id.txt"
+   ```</p>
+<ol>
+<li><strong>读取进程ID并终止进程</strong></li>
+</ol>
+<p>```
+   powershell复制代码# 读取进程ID
+   $processId = Get-Content "process_id.txt"</p>
+<p># 终止进程
+   Stop-Process -Id $processId</p>
+<p># 可选：删除记录的文件
+   Remove-Item "process_id.txt"
+   ```</p>
+<h3 id="_3">综合脚本示例</h3>
+<p>启动进程并记录进程ID：</p>
+<pre><code>powershell复制代码# 启动进程并返回进程对象
+$process = Start-Process -FilePath &quot;npm&quot; -ArgumentList &quot;run dev&quot; -NoNewWindow -PassThru
+
+# 输出进程ID和进程名称
+Write-Output &quot;Process ID: $($process.Id)&quot;
+Write-Output &quot;Process Name: $($process.ProcessName)&quot;
+
+# 保存进程ID到文件
+$process.Id | Out-File -FilePath &quot;process_id.txt&quot;
+</code></pre>
+<p>读取进程ID并终止进程：</p>
+<pre><code>powershell复制代码# 读取进程ID
+$processId = Get-Content &quot;process_id.txt&quot;
+
+# 终止进程
+Stop-Process -Id $processId
+
+# 可选：删除记录的文件
+Remove-Item &quot;process_id.txt&quot;
+</code></pre>
+<p>通过这种方式，你可以在启动进程时记录其进程ID，并在需要时使用该ID来管理进程。</p>
+<h1 id="_4">不扎实的东西</h1>
+<p>集合，反射，stream流</p>
+<p>这段代码的作用是从一个文章列表中提取所有的分类ID，并将这些ID存储到一个<code>Set&lt;Long&gt;</code>集合中。具体解释如下：</p>
+<pre><code>Set&lt;Long&gt; categoryIds = articleList.stream()
+    .map(article -&gt; article.getCategoryId())
+    .collect(Collectors.toSet());
+</code></pre>
+<ul>
+<li><code>articleList.stream()</code>: 将文章列表转换成一个流（Stream）。</li>
+<li><code>.map(article -&gt; article.getCategoryId())</code>: 将流中的每篇文章映射（转换）为它的分类ID。</li>
+<li><code>.collect(Collectors.toSet())</code>: 将映射后的分类ID收集到一个<code>Set</code>集合中，以去除重复的ID。</li>
+</ul>
+<p>这样做的结果是<code>categoryIds</code>集合中包含了所有不重复的文章分类ID。</p>
+<h2 id="lambdaquerywrapperquerywrapper">LambdaQueryWrapper&amp;QueryWrapper</h2>
+<p>这是我之前没接触到的东西耶，当初认为mybatis的xml配置已经封圣了</p>
+<p>MyBatis Plus 中的 <code>getById()</code> 方法是 <code>IService</code> 接口提供的静态方法，用于根据实体对象的的主键值从数据库中检索单个实体对象。</p>
+<p>一个前端工程的部署搞死了我</p>
+<h2 id="stream">Stream流</h2>
+<pre><code class="language-java">categories = categories.stream()
+        .filter(category -&gt; SystemConstants.Category_STATUS_NORMAL.equals(category.getStatus()))
+        .collect(Collectors.toList());
+</code></pre>
+<p><strong>Q:stream流中Map方法的作用是什么</strong></p>
+<p>A:</p>
+<ul>
+<li>将原始 Stream 中的每个元素都映射转换为另一个元素，从而得到一个新的 Stream。</li>
+<li>转换前后的元素类型可以不同。</li>
+<li>map()方法不会修改原始 Stream 中的元素，而是创建一个新的 Stream，其中包含了原始 Stream 中每个元素经过转换后的结果。</li>
+</ul>
+<p><strong>Q：Stream中的.collect()传参Collectors.toList()和Collectors.toSet()有什么区别</strong></p>
+<p>A：Stream中的<code>.collect()</code>方法用于将Stream中的元素收集到集合中。<code>Collectors.toList()</code>和<code>Collectors.toSet()</code>是两个常用的<code>Collector</code>实现，用于将Stream收集到<code>List</code>和<code>Set</code>中，分别。</p>
+<p><strong>区别</strong></p>
+<ul>
+<li><strong>返回结果类型不同:</strong></li>
+<li><code>Collectors.toList()</code>返回一个<code>List</code>类型的集合，该集合中的元素保持原有的顺序。</li>
+<li><code>Collectors.toSet()</code>返回一个<code>Set</code>类型的集合，该集合中的元素是唯一的，并且不保证顺序。</li>
+<li><strong>内存占用不同:</strong></li>
+<li><code>Collectors.toList()</code>通常比<code>Collectors.toSet()</code>占用更多的内存，因为<code>List</code>需要额外存储元素的顺序信息。</li>
+<li><code>Collectors.toSet()</code>通常比<code>Collectors.toList()</code>占用更少的内存，因为<code>Set</code>不需要存储元素的顺序信息。</li>
+<li><strong>性能不同:</strong></li>
+<li><code>Collectors.toList()</code>通常比<code>Collectors.toSet()</code>效率更高，因为<code>List</code>的插入操作通常比<code>Set</code>的插入操作更快速。</li>
+<li><code>Collectors.toSet()</code>在需要去重的情况下比<code>Collectors.toList()</code>更有效，因为<code>Set</code>可以自动去除重复的元素。</li>
+</ul>
+<p><strong>选择指南</strong></p>
+<ul>
+<li><strong>需要保留元素的顺序:</strong> 使用<code>Collectors.toList()</code>.</li>
+<li><strong>需要去除重复的元素:</strong> 使用<code>Collectors.toSet()</code>.</li>
+<li><strong>需要更高的性能:</strong> 使用<code>Collectors.toList()</code>.</li>
+<li><strong>需要更少的内存占用:</strong> 使用<code>Collectors.toSet()</code>.</li>
+</ul>
+<p><strong>以下是一些使用示例:</strong></p>
+<pre><code class="language-java">// 将Stream中的元素收集到List中
+List&lt;String&gt; names = Arrays.asList(&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;).stream().collect(Collectors.toList());
+
+// 将Stream中的元素收集到Set中
+Set&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 1, 2, 3).stream().collect(Collectors.toSet());
+</code></pre>
+<h1 id="_5">跨域问题</h1>
+<p><img alt="image-20240717161034085" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240717161034085.png" /></p>
+<pre><code class="language-java">package com.irreplace.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * @author Me
+ * @version 1.0
+ * @date 2024/7/17 16:18
+ * @Description:解决跨域问题
+ */
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        // 设置允许跨域的路径
+        registry.addMapping(&quot;/**&quot;)
+        // 设置允许跨域请求的域名
+                .allowedOriginPatterns(&quot;*&quot;)
+        // 是否允许cookie
+                .allowCredentials(true)
+        // 设置允许的请求方式
+                .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PUT&quot;)
+        // 设置允许的header属性
+                .allowedHeaders(&quot;*&quot;)
+        // 跨域允许时间
+                .maxAge(3600);
+    }
+}
+</code></pre>
+<h1 id="bean">Bean拷贝封装成工具类</h1>
+<p>这啥啊我完全看不懂气死了啊</p>
+<pre><code class="language-java">package com.irreplace.utils;
+
+import org.springframework.beans.BeanUtils;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * @author Me
+ * @version 1.0
+ * @date 2024/7/17 22:18
+ * @Description:封装成前端需要的字段，工具类
+ */
+
+public class BeanCopyUtils {
+    private BeanCopyUtils() {
+    }
+    public static &lt;V&gt; V copyBean(Object source,Class&lt;V&gt; clazz) {
+        //创建目标对象
+        V result = null;
+        try {
+            result = clazz.newInstance();
+        //实现属性copy
+            BeanUtils.copyProperties(source, result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //返回结果
+        return result;
+    }
+    public static &lt;O,V&gt; List&lt;V&gt; copyBeanList(List&lt;O&gt; list, Class&lt;V&gt; clazz){
+        return list.stream()
+                .map(o -&gt; copyBean(o, clazz))
+                .collect(Collectors.toList());
+    }
+}
+</code></pre>
+<h1 id="easycode">EasyCode模板配置</h1>
+<p>包的宏定义，mapper出问题？</p>
+<h1 id="ymlmybatis">yml配置mybatis逻辑删除</h1>
+<p>这段配置是用于配置 MyBatis-Plus 的全局配置，特别是数据库配置部分。具体解释如下：</p>
+<pre><code class="language-yaml">mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+</code></pre>
+<ul>
+<li><code>mybatis-plus</code>: MyBatis-Plus 的配置根节点。</li>
+<li><code>global-config</code>: 全局配置。</li>
+<li><code>db-config</code>: 数据库配置。</li>
+</ul>
+<p>具体字段解释：</p>
+<ol>
+<li><code>logic-delete-field: delFlag</code></li>
+<li>
+<p>指定逻辑删除的字段名。在数据库表中，这个字段用于标记记录是否被逻辑删除。比如，当 <code>delFlag</code> 为 1 时表示记录被删除，当为 0 时表示记录未被删除。</p>
+</li>
+<li>
+<p><code>logic-delete-value: 1</code></p>
+</li>
+<li>
+<p>表示逻辑删除时，该字段的值。这里表示如果 <code>delFlag</code> 字段的值为 1，则该记录被逻辑删除。</p>
+</li>
+<li>
+<p><code>logic-not-delete-value: 0</code></p>
+</li>
+<li>
+<p>表示逻辑未删除时，该字段的值。这里表示如果 <code>delFlag</code> 字段的值为 0，则该记录未被逻辑删除。</p>
+</li>
+<li>
+<p><code>id-type: auto</code></p>
+</li>
+<li>指定主键生成策略为自动增长（自增主键）。这意味着在插入新记录时，主键值会自动生成。</li>
+</ol>
+<p>总结：这段配置主要用于设置 MyBatis-Plus 中关于逻辑删除和主键生成的全局配置，方便在操作数据库时对逻辑删除字段进行统一管理，并自动处理主键的生成。</p>
+<h1 id="categoryserviceimplgetcategorylist">解析CategoryServiceImpl.getCategoryList()</h1>
+<h3 id="_6">总体代码</h3>
+<pre><code class="language-java">/**
+ * @author Me
+ * @version 1.0
+ * @date 2024/7/18 12:19
+ * @Description:分类
+ */
+@Service
+@Slf4j
+public class CategoryServiceImpl  extends ServiceImpl&lt;CategoryMapper,Category&gt; implements CategoryService {
+   @Autowired
+   private ArticleService articleService;
+    @Override
+    public ResponseResult getCategoryList() {
+        //先查询文章，返回正常显示的文章
+        LambdaQueryWrapper&lt;Article&gt; lambdaWrapper = new LambdaQueryWrapper&lt;&gt;();
+        lambdaWrapper.eq(Article::getStatus, SystemConstants.ARTICLE_STATUS_NORMAL);
+        List&lt;Article&gt; articleList = articleService.list(lambdaWrapper);
+
+        //筛选出正常显示的文章id号,并且去除重复
+        Set&lt;Long&gt; collectIds = articleList.stream()
+                .map(article -&gt; article.getCategoryId())
+                .collect(Collectors.toSet());
+        //查询分类表,stream过滤出状态为正常的文章分类
+        List&lt;Category&gt; categories = listByIds(collectIds);
+        categories = categories.stream()
+                .filter(category -&gt; SystemConstants.Category_STATUS_NORMAL.equals(category.getStatus()))
+                .collect(Collectors.toList());
+        //封装vo
+        List&lt;CategoryVo&gt; categoryVos = BeanCopyUtils.copyBeanList(categories, CategoryVo.class);
+       //log.info(categoryVos.toString());
+        return ResponseResult.successResult(categoryVos);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">
+</code></pre>
+<h3 id="lambdaquerywrapper">LambdaQueryWrapper使用</h3>
+<p>这段代码是使用 MyBatis-Plus 构建查询条件并查询文章列表。具体解释如下：</p>
+<pre><code class="language-java">  //先查文章表，状态为已发布文章
+LambdaQueryWrapper&lt;Article&gt; articleWrapper = new LambdaQueryWrapper&lt;&gt;();
+articleWrapper.eq(Article::getStatus, SystemConstants.ARTICLE_STATUS_NORMAL);
+List&lt;Article&gt; articleList = articleService.list(articleWrapper);
+</code></pre>
+<ol>
+<li><code>LambdaQueryWrapper&lt;Article&gt; articleWrapper = new LambdaQueryWrapper&lt;&gt;();</code></li>
+<li>
+<p>创建一个 <code>LambdaQueryWrapper</code> 对象，用于构建查询条件。<code>LambdaQueryWrapper</code> 是 MyBatis-Plus 提供的一个工具类，用于以 lambda 表达式的方式构建查询条件。</p>
+</li>
+<li>
+<p><code>articleWrapper.eq(Article::getStatus, SystemConstants.ARTICLE_STATUS_NORMAL);</code></p>
+</li>
+<li>使用 <code>eq</code> 方法构建查询条件，表示查询 <code>status</code> 字段等于 <code>SystemConstants.ARTICLE_STATUS_NORMAL</code> 的记录。</li>
+<li><code>Article::getStatus</code> 是 lambda 表达式，表示 <code>Article</code> 类中的 <code>getStatus</code> 方法，即查询 <code>status</code> 字段。</li>
+<li>
+<p><code>SystemConstants.ARTICLE_STATUS_NORMAL</code> 是一个常量，表示正常状态的文章。</p>
+</li>
+<li>
+<p><code>List&lt;Article&gt; articleList = articleService.list(articleWrapper);</code></p>
+</li>
+<li>使用 <code>articleService</code> 的 <code>list</code> 方法根据构建的查询条件 <code>articleWrapper</code> 查询符合条件的文章列表，并将结果存储在 <code>articleList</code> 中。</li>
+</ol>
+<p>总结：这段代码的作用是查询状态为正常（<code>ARTICLE_STATUS_NORMAL</code>）的文章列表，并将查询结果存储在 <code>articleList</code> 中。</p>
+<h3 id="stream_1">两处stream流使用</h3>
+<pre><code>//筛选出正常显示的文章id号,并且去除重复
+Set&lt;Long&gt; collectIds = articleList.stream()
+        .map(article -&gt; article.getCategoryId())
+        .collect(Collectors.toSet());
+</code></pre>
+<pre><code>//查询分类表,stream过滤出状态为正常的文章分类
+List&lt;Category&gt; categories = listByIds(collectIds);
+categories = categories.stream()
+        .filter(category -&gt; SystemConstants.Category_STATUS_NORMAL.equals(category.getStatus()))
+        .collect(Collectors.toList());
+</code></pre>
+<p>Stream 是 Java 8 引入的一种新的抽象序列，用于处理集合数据的方法。它提供了一种高效且易于理解的方式来对集合进行操作和处理。以下是一些常用的 Stream 方法：</p>
+<ol>
+<li><strong>forEach</strong>：</li>
+<li>对流中的每个元素执行指定的操作。</li>
+</ol>
+<p><code>java
+   stream.forEach(element -&gt; System.out.println(element));</code></p>
+<ol>
+<li><strong>map</strong>：</li>
+<li>将流中的每个元素通过指定的函数映射成另一个元素。</li>
+</ol>
+<p><code>java
+   Stream&lt;String&gt; upperCaseStream = stream.map(String::toUpperCase);</code></p>
+<ol>
+<li><strong>filter</strong>：</li>
+<li>根据指定的条件过滤流中的元素。</li>
+</ol>
+<p><code>java
+   Stream&lt;String&gt; filteredStream = stream.filter(s -&gt; s.length() &gt; 5);</code></p>
+<ol>
+<li><strong>collect</strong>：</li>
+<li>将流中的元素收集到一个集合或者其他数据结构中。</li>
+</ol>
+<p><code>java
+   List&lt;String&gt; collectedList = stream.collect(Collectors.toList());</code></p>
+<ol>
+<li><strong>reduce</strong>：</li>
+<li>将流中的元素通过指定的二元操作符进行归约操作，得到一个最终的结果。</li>
+</ol>
+<p><code>java
+   Optional&lt;String&gt; reducedString = stream.reduce((s1, s2) -&gt; s1 + ", " + s2);</code></p>
+<ol>
+<li><strong>findFirst</strong> 和 <strong>findAny</strong>：</li>
+<li><code>findFirst</code> 返回流中的第一个元素；<code>findAny</code> 返回流中的任意一个元素（在并行流中有用）。</li>
+</ol>
+<p><code>java
+   Optional&lt;String&gt; firstElement = stream.findFirst();
+   Optional&lt;String&gt; anyElement = stream.findAny();</code></p>
+<ol>
+<li><strong>count</strong>：</li>
+<li>返回流中元素的数量。</li>
+</ol>
+<p><code>java
+   long count = stream.count();</code></p>
+<ol>
+<li><strong>skip</strong> 和 <strong>limit</strong>：</li>
+<li><code>skip</code> 跳过流中的前几个元素；<code>limit</code> 限制流中元素的数量。</li>
+</ol>
+<p><code>java
+   Stream&lt;String&gt; skippedStream = stream.skip(2);
+   Stream&lt;String&gt; limitedStream = stream.limit(5);</code></p>
+<ol>
+<li><strong>sorted</strong>：</li>
+<li>对流中的元素进行排序。</li>
+</ol>
+<p><code>java
+   Stream&lt;String&gt; sortedStream = stream.sorted();</code></p>
+<ol>
+<li>
+<p><strong>distinct</strong>：</p>
+<ul>
+<li>去除流中重复的元素。</li>
+</ul>
+<p><code>java
+Stream&lt;String&gt; distinctStream = stream.distinct();</code></p>
+</li>
+<li>
+<p><strong>allMatch, anyMatch, noneMatch</strong>：</p>
+<ul>
+<li><code>allMatch</code> 检查流中的所有元素是否都满足指定条件；</li>
+<li><code>anyMatch</code> 检查流中是否至少有一个元素满足指定条件；</li>
+<li><code>noneMatch</code> 检查流中是否所有元素都不满足指定条件。</li>
+</ul>
+<p><code>java
+boolean allMatched = stream.allMatch(s -&gt; s.length() &gt; 3);
+boolean anyMatched = stream.anyMatch(s -&gt; s.startsWith("A"));
+boolean noneMatched = stream.noneMatch(s -&gt; s.isEmpty());</code></p>
+</li>
+</ol>
+<p>这些是 Java 中 Stream 类中常用的一些方法。每个方法都提供了不同的功能，可以根据具体的需求来选择合适的方法来操作和处理流中的数据。</p>
+<h1 id="_7">分页查询</h1>
+<p><img alt="  " src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240718142106087.png" /></p>
+<p><img alt="image-20240718142831420" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240718142831420.png" /></p>
+<p><img alt="image-20240718143010333" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240718143010333.png" /></p>
+<h1 id="mybatis-plus">MyBatis-Plus 拦截器</h1>
+<p>配置和注册一个 MyBatis-Plus 拦截器，用于在 MyBatis 执行 SQL 时自动拦截并实现分页功能</p>
+<pre><code class="language-java">package com.irreplace.config;
+
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * @author Me
+ * @version 1.0
+ * @date 2024/7/18 14:36
+ * @Description:配置和注册一个 MyBatis-Plus 拦截器，用于在 MyBatis 执行 SQL 时自动拦截并实现分页功能。
+ */
+
+@Configuration
+public class MybatisPlusConfig {
+    /**
+     * 3.4.0之后版本
+     *
+     * @return
+     */
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor mybatisPlusInterceptor = new
+                MybatisPlusInterceptor();
+        mybatisPlusInterceptor.addInnerInterceptor(new
+                PaginationInnerInterceptor());
+        return mybatisPlusInterceptor;
+    }
+}
+</code></pre>
+<h1 id="_8">文章详情分类</h1>
+<p><img alt="image-20240718191312331" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240718191312331.png" /></p>
+<p>从路径中获取请求参数记得添加注解</p>
+<h1 id="_9">登陆</h1>
+<p><img alt="image-20240718213431303" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240718213431303.png" /></p>
+<p><img alt="image-20240718215755748" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240718215755748.png" /></p>
+<h3 id="_10">自定义登陆接口</h3>
+<h3 id="authenticationmanager">注入AuthenticationManager</h3>
+<h3 id="blogsecurityconfigconfigure">前台Blog的SecurityConfig.configure</h3>
+<pre><code class="language-java">   @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                //关闭csrf
+                .csrf().disable()
+                //不通过Session获取SecurityContext
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                // 对于登录接口 允许匿名访问
+                .antMatchers(&quot;/login&quot;).anonymous()
+                // 除上面外的所有请求全部不需要认证即可访问
+                .anyRequest().permitAll();
+        http.logout().disable();
+                //允许跨域
+        http.cors();
+    }
+</code></pre>
+<p>这段代码是 Spring Security 配置的一部分，用于配置 Spring Security 的安全策略。它主要做了以下几件事情：</p>
+<p><strong>1. 关闭 CSRF 保护</strong></p>
+<p>CSRF（Cross-Site Request Forgery）是一种跨站请求伪造攻击，攻击者可以利用用户的已登录身份来执行一些未经授权的操作。Spring Security 默认启用 CSRF 保护，可以帮助防止此类攻击。但是，在某些情况下，您可能需要关闭 CSRF 保护。例如，如果您使用的是 REST API，则可能需要关闭 CSRF 保护，以便允许跨域请求。</p>
+<p><strong>2. 禁用 Session 创建</strong></p>
+<p>Spring Security 默认使用 Session 来存储 SecurityContext，SecurityContext 包含有关当前用户的安全信息。但是，如果您使用的是无状态应用程序，则不需要 Session。在这种情况下，您可以禁用 Session 创建。</p>
+<p><strong>3. 配置授权规则</strong></p>
+<p>授权规则定义了哪些用户可以访问哪些资源。在这段代码中，有两个授权规则：</p>
+<ul>
+<li>对于 <code>/login</code> 接口，允许匿名访问。这意味着任何用户都可以访问此接口，而无需登录。</li>
+<li>对于除 <code>/login</code> 接口之外的所有请求，都不需要认证即可访问。这意味着任何用户都可以访问这些请求，无论他们是否登录。</li>
+</ul>
+<p><strong>4. 禁用注销功能</strong></p>
+<p>默认情况下，Spring Security 提供注销功能，允许用户退出登录。但是，如果您不需要注销功能，可以禁用它。</p>
+<p><strong>5. 启用跨域支持</strong></p>
+<p>跨域是指来自不同域的 Web 应用程序之间的通信。默认情况下，浏览器会限制跨域请求。Spring Security 提供跨域支持，可以帮助您允许跨域请求。</p>
+<p>总而言之，这段代码配置了以下安全策略：</p>
+<ul>
+<li>关闭 CSRF 保护</li>
+<li>禁用 Session 创建</li>
+<li>对于 <code>/login</code> 接口，允许匿名访问</li>
+<li>对于除 <code>/login</code> 接口之外的所有请求，都不需要认证即可访问</li>
+<li>禁用注销功能</li>
+<li>启用跨域支持</li>
+</ul>
+<h3 id="_11">登录校验过滤器实现</h3>
+<p><strong>记得要在httpconfig加入该过滤器http.addFilterbefore()?!!!</strong></p>
+<h1 id="_12">分页查询</h1>
+<pre><code class="language-java"> Page&lt;Comment&gt; commentPage = new Page&lt;&gt;(pageNum,pageSize);
+        page(commentPage,commentLambdaQueryWrapper);
+</code></pre>
+<p>这就完成了？但我真的搞不懂</p>
+<p><img alt="image-20240721230900311" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240721230900311.png" /></p>
+<p><img alt="image-20240721230935834" src="../%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2.assets/image-20240721230935834.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>
