@@ -127,6 +127,7 @@ $$
 $$
 
 7. **二进制约束**：
+
 $$
-x_{i,j,t} \in \{0, 1\} \quad \forall i, \forall j, \forall t
+x_{i,j,t} \in \{0, 1\} \quad \forall i, \forall j, \forall tff
 $$

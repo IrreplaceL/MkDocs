@@ -51,13 +51,15 @@ python -m venv myvenv
 
 ![image-20240723112701159](index.assets/image-20240723112701159.png)
 
-再次进入虚拟环境
+激活，进入虚拟环境
 
 ```shell
-venv\Scripts\activate
+myvenv\Scripts\activate
 ```
 
 主要是根据venv所在的目录
+
+
 
 
 
